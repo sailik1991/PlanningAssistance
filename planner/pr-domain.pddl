@@ -1,0 +1,2376 @@
+(define
+	(domain grounded-RADAR)
+	(:requirements :strips :action-costs)
+	(:predicates
+		( ALERTED_APACHESTATION )
+		( ALERTED_COURTSTATION )
+		( ALERTED_ADMINFIRE )
+		( ALERTED_MESAFIRE )
+		( ALERTED_LUKES )
+		( ALERTED_JOSEPH )
+		( ALERTED_MARKETPLACE )
+		( ALERTED_RURAL )
+		( ALERTED_BYENG )
+		( UPDATED_POLICECHIEF )
+		( UPDATED_FIRECHIEF )
+		( UPDATED_MEDICHIEF )
+		( UPDATED_TRANSPORTCHIEF )
+		( DEPLOYED_POLICE_CARS_MARKETPLACE )
+		( DEPLOYED_POLICE_CARS_RURAL )
+		( DEPLOYED_POLICE_CARS_BYENG )
+		( DEPLOYED_ENGINES_MARKETPLACE )
+		( DEPLOYED_SMALL_ENGINES_MARKETPLACE )
+		( NEEDED_BARRICADE_MARKETPLACE )
+		( DEPLOYED_ENGINES_RURAL )
+		( DEPLOYED_SMALL_ENGINES_RURAL )
+		( NEEDED_BARRICADE_RURAL )
+		( DEPLOYED_ENGINES_BYENG )
+		( DEPLOYED_SMALL_ENGINES_BYENG )
+		( NEEDED_BARRICADE_BYENG )
+		( DEPLOYED_BIG_ENGINES_MARKETPLACE )
+		( DEPLOYED_BIG_ENGINES_RURAL )
+		( DEPLOYED_BIG_ENGINES_BYENG )
+		( DEPLOYED_LADDERS_MARKETPLACE )
+		( DEPLOYED_LADDERS_RURAL )
+		( DEPLOYED_LADDERS_BYENG )
+		( DEPLOYED_BULLDOZERS_MARKETPLACE )
+		( DEPLOYED_BULLDOZERS_RURAL )
+		( DEPLOYED_BULLDOZERS_BYENG )
+		( DEPLOYED_HELICOPTERS_MARKETPLACE )
+		( DEPLOYED_HELICOPTERS_RURAL )
+		( DEPLOYED_HELICOPTERS_BYENG )
+		( DEPLOYED_RESCUERS_MARKETPLACE )
+		( DEPLOYED_RESCUERS_RURAL )
+		( DEPLOYED_RESCUERS_BYENG )
+		( DEPLOYED_AMBULANCES_MARKETPLACE )
+		( DEPLOYED_AMBULANCES_RURAL )
+		( DEPLOYED_AMBULANCES_BYENG )
+		( POSITIONED_POLICEMEN_MARKETPLACE )
+		( POSITIONED_POLICEMEN_RURAL )
+		( POSITIONED_POLICEMEN_BYENG )
+		( MEDIA_CONTACTED_POLICECHIEF )
+		( MEDIA_CONTACTED_FIRECHIEF )
+		( MEDIA_CONTACTED_MEDICHIEF )
+		( MEDIA_CONTACTED_TRANSPORTCHIEF )
+		( ACTIVE_HELPLINE_POLICECHIEF )
+		( ACTIVE_HELPLINE_FIRECHIEF )
+		( ACTIVE_HELPLINE_MEDICHIEF )
+		( ACTIVE_HELPLINE_TRANSPORTCHIEF )
+		( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		( ACTIVE_LOCAL_ALERT_FIRECHIEF )
+		( ACTIVE_LOCAL_ALERT_MEDICHIEF )
+		( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		( BLOCKED_ROAD_MARKETPLACE_MARKETPLACE )
+		( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_MARKETPLACE )
+		( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		( BLOCKED_ROAD_MARKETPLACE_RURAL )
+		( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_RURAL )
+		( BLOCKED_ROAD_MARKETPLACE_BYENG )
+		( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_BYENG )
+		( BLOCKED_ROAD_RURAL_MARKETPLACE )
+		( NEEDED_DIVERTED_TRAFFIC_RURAL_MARKETPLACE )
+		( BLOCKED_ROAD_RURAL_RURAL )
+		( NEEDED_DIVERTED_TRAFFIC_RURAL_RURAL )
+		( BLOCKED_ROAD_RURAL_BYENG )
+		( NEEDED_DIVERTED_TRAFFIC_RURAL_BYENG )
+		( BLOCKED_ROAD_BYENG_MARKETPLACE )
+		( NEEDED_DIVERTED_TRAFFIC_BYENG_MARKETPLACE )
+		( BLOCKED_ROAD_BYENG_RURAL )
+		( NEEDED_DIVERTED_TRAFFIC_BYENG_RURAL )
+		( BLOCKED_ROAD_BYENG_BYENG )
+		( NEEDED_DIVERTED_TRAFFIC_BYENG_BYENG )
+		( TRAFFIC_DIVERTED_MARKETPLACE_MARKETPLACE )
+		( TRAFFIC_DIVERTED_MARKETPLACE_RURAL )
+		( TRAFFIC_DIVERTED_MARKETPLACE_BYENG )
+		( TRAFFIC_DIVERTED_RURAL_MARKETPLACE )
+		( TRAFFIC_DIVERTED_RURAL_RURAL )
+		( TRAFFIC_DIVERTED_RURAL_BYENG )
+		( TRAFFIC_DIVERTED_BYENG_MARKETPLACE )
+		( TRAFFIC_DIVERTED_BYENG_RURAL )
+		( TRAFFIC_DIVERTED_BYENG_BYENG )
+		( PREPARED_EVACUATION_APACHESTATION )
+		( PREPARED_EVACUATION_COURTSTATION )
+		( PREPARED_EVACUATION_ADMINFIRE )
+		( PREPARED_EVACUATION_MESAFIRE )
+		( PREPARED_EVACUATION_LUKES )
+		( PREPARED_EVACUATION_JOSEPH )
+		( PREPARED_EVACUATION_MARKETPLACE )
+		( PREPARED_EVACUATION_RURAL )
+		( PREPARED_EVACUATION_BYENG )
+		( EVACUATED_MARKETPLACE_MARKETPLACE )
+		( EVACUATED_MARKETPLACE_RURAL )
+		( EVACUATED_MARKETPLACE_BYENG )
+		( EVACUATED_RURAL_MARKETPLACE )
+		( EVACUATED_RURAL_RURAL )
+		( EVACUATED_RURAL_BYENG )
+		( EVACUATED_BYENG_MARKETPLACE )
+		( EVACUATED_BYENG_RURAL )
+		( EVACUATED_BYENG_BYENG )
+		( EXTINGUISHED_FIRE_BYENG )
+		( NEEDED_ADDRESS_MEDIA )
+		( NEEDED_SEARCH_CASUALTIES_BYENG )
+		( EXTINGUISHED_FIRE_RURAL )
+		( NEEDED_SEARCH_CASUALTIES_RURAL )
+		( BARRICADED_MARKETPLACE )
+		( NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF )
+		( NOT_NEEDED_BARRICADE_MARKETPLACE )
+		( BARRICADED_RURAL )
+		( NOT_NEEDED_BARRICADE_RURAL )
+		( BARRICADED_BYENG )
+		( NOT_NEEDED_BARRICADE_BYENG )
+		( SEARCHED_RURAL )
+		( NEEDED_ATTEND_CASUALTIES_RURAL )
+		( SEARCHED_BYENG )
+		( NEEDED_ATTEND_CASUALTIES_BYENG )
+		( ATTENDED_CASUALTIES_RURAL )
+		( ATTENDED_CASUALTIES_BYENG )
+		( ADDRESSED_MEDIA )
+		( NOT_NEEDED_ADDRESS_MEDIA )
+		( NOT_NEEDED_ATTEND_CASUALTIES_BYENG )
+		( NOT_NEEDED_ATTEND_CASUALTIES_RURAL )
+		( NOT_NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF )
+		( FIRE_AT_BYENG )
+		( NOT_NEEDED_SEARCH_CASUALTIES_BYENG )
+		( FIRE_AT_RURAL )
+		( NOT_NEEDED_SEARCH_CASUALTIES_RURAL )
+		( SMALL_FIRE_AT_BYENG )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_BYENG )
+		( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_RURAL )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_MARKETPLACE )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_BYENG )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_RURAL )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_MARKETPLACE )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_BYENG )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_RURAL )
+		( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_MARKETPLACE )
+		( HAS_AMBULANCES_NUMBER_JOSEPH )
+		( HAS_AMBULANCES_NUMBER_LUKES )
+		( HAS_RESCUERS_NUMBER_MESAFIRE )
+		( HAS_RESCUERS_NUMBER_ADMINFIRE )
+		( HAS_HELICOPTERS_NUMBER_MESAFIRE )
+		( HAS_HELICOPTERS_NUMBER_ADMINFIRE )
+		( HAS_BULLDOZERS_NUMBER_MESAFIRE )
+		( HAS_BULLDOZERS_NUMBER_ADMINFIRE )
+		( HAS_LADDERS_NUMBER_MESAFIRE )
+		( HAS_LADDERS_NUMBER_ADMINFIRE )
+		( HAS_BIG_ENGINES_NUMBER_MESAFIRE )
+		( HAS_BIG_ENGINES_NUMBER_ADMINFIRE )
+		( HAS_SMALL_ENGINES_NUMBER_MESAFIRE )
+		( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE )
+		( HAS_POLICE_CAR_NUMBER_COURTSTATION )
+		( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+		( EXPLAINED_FULL_OBS_SEQUENCE )
+		( NOT_EXPLAINED_FULL_OBS_SEQUENCE )
+	) 
+	(:functions (total-cost))
+	(:action ADDRESS_MEDIA_TRANSPORTCHIEF
+		:parameters ()
+		:precondition
+		(and
+			( NEEDED_ADDRESS_MEDIA )
+			( MEDIA_CONTACTED_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( ADDRESSED_MEDIA )
+			( NOT_NEEDED_ADDRESS_MEDIA )
+			(not ( NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action ADDRESS_MEDIA_MEDICHIEF
+		:parameters ()
+		:precondition
+		(and
+			( NEEDED_ADDRESS_MEDIA )
+			( MEDIA_CONTACTED_MEDICHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( ADDRESSED_MEDIA )
+			( NOT_NEEDED_ADDRESS_MEDIA )
+			(not ( NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action ADDRESS_MEDIA_FIRECHIEF
+		:parameters ()
+		:precondition
+		(and
+			( NEEDED_ADDRESS_MEDIA )
+			( MEDIA_CONTACTED_FIRECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( ADDRESSED_MEDIA )
+			( NOT_NEEDED_ADDRESS_MEDIA )
+			(not ( NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action ADDRESS_MEDIA_POLICECHIEF
+		:parameters ()
+		:precondition
+		(and
+			( NEEDED_ADDRESS_MEDIA )
+			( MEDIA_CONTACTED_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( ADDRESSED_MEDIA )
+			( NOT_NEEDED_ADDRESS_MEDIA )
+			(not ( NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action ATTEND_CASUALTIES_MEDICHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_AMBULANCES_BYENG )
+			( NEEDED_ATTEND_CASUALTIES_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( ATTENDED_CASUALTIES_BYENG )
+			( NOT_NEEDED_ATTEND_CASUALTIES_BYENG )
+			( NEEDED_ADDRESS_MEDIA )
+			(not ( NEEDED_ATTEND_CASUALTIES_BYENG ))
+			(not ( NOT_NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action ATTEND_CASUALTIES_MEDICHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_AMBULANCES_RURAL )
+			( NEEDED_ATTEND_CASUALTIES_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( ATTENDED_CASUALTIES_RURAL )
+			( NOT_NEEDED_ATTEND_CASUALTIES_RURAL )
+			( NEEDED_ADDRESS_MEDIA )
+			(not ( NEEDED_ATTEND_CASUALTIES_RURAL ))
+			(not ( NOT_NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action SEARCH_CASUALTIES_FIRECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_RESCUERS_BYENG )
+			( DEPLOYED_HELICOPTERS_BYENG )
+			( DEPLOYED_BULLDOZERS_BYENG )
+			( EXTINGUISHED_FIRE_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( SEARCHED_BYENG )
+			( NEEDED_ATTEND_CASUALTIES_BYENG )
+			( NEEDED_ADDRESS_MEDIA )
+			(not ( NOT_NEEDED_ATTEND_CASUALTIES_BYENG ))
+			(not ( NOT_NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action SEARCH_CASUALTIES_FIRECHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_RESCUERS_RURAL )
+			( DEPLOYED_HELICOPTERS_RURAL )
+			( DEPLOYED_BULLDOZERS_RURAL )
+			( EXTINGUISHED_FIRE_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( SEARCHED_RURAL )
+			( NEEDED_ATTEND_CASUALTIES_RURAL )
+			( NEEDED_ADDRESS_MEDIA )
+			(not ( NOT_NEEDED_ATTEND_CASUALTIES_RURAL ))
+			(not ( NOT_NEEDED_ADDRESS_MEDIA ))
+		)
+	)
+	(:action BARRICADE_FIRECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_ENGINES_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( BARRICADED_BYENG )
+			( NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF )
+			( NOT_NEEDED_BARRICADE_BYENG )
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF ))
+			(not ( NEEDED_BARRICADE_BYENG ))
+		)
+	)
+	(:action BARRICADE_FIRECHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_ENGINES_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( BARRICADED_RURAL )
+			( NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF )
+			( NOT_NEEDED_BARRICADE_RURAL )
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF ))
+			(not ( NEEDED_BARRICADE_RURAL ))
+		)
+	)
+	(:action BARRICADE_FIRECHIEF_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_ENGINES_MARKETPLACE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( BARRICADED_MARKETPLACE )
+			( NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF )
+			( NOT_NEEDED_BARRICADE_MARKETPLACE )
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF ))
+			(not ( NEEDED_BARRICADE_MARKETPLACE ))
+		)
+	)
+	(:action EXTINGUISH_BIG_FIRE_FIRECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_BIG_ENGINES_BYENG )
+			( FIRE_AT_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( EXTINGUISHED_FIRE_BYENG )
+			( NEEDED_SEARCH_CASUALTIES_BYENG )
+			(not ( FIRE_AT_BYENG ))
+			(not ( NOT_NEEDED_SEARCH_CASUALTIES_BYENG ))
+		)
+	)
+	(:action EXTINGUISH_BIG_FIRE_FIRECHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_BIG_ENGINES_RURAL )
+			( FIRE_AT_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( EXTINGUISHED_FIRE_RURAL )
+			( NEEDED_SEARCH_CASUALTIES_RURAL )
+			(not ( FIRE_AT_RURAL ))
+			(not ( NOT_NEEDED_SEARCH_CASUALTIES_RURAL ))
+		)
+	)
+	(:action EXTINGUISH_SMALL_FIRE_FIRECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_ENGINES_BYENG )
+			( SMALL_FIRE_AT_BYENG )
+			( FIRE_AT_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( EXTINGUISHED_FIRE_BYENG )
+			( NEEDED_ADDRESS_MEDIA )
+			( NEEDED_SEARCH_CASUALTIES_BYENG )
+			(not ( FIRE_AT_BYENG ))
+			(not ( SMALL_FIRE_AT_BYENG ))
+			(not ( NOT_NEEDED_ADDRESS_MEDIA ))
+			(not ( NOT_NEEDED_SEARCH_CASUALTIES_BYENG ))
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_BYENG_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_BYENG_BYENG )
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( PREPARED_EVACUATION_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_BYENG_BYENG )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_BYENG_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_BYENG_RURAL )
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( PREPARED_EVACUATION_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_BYENG_RURAL )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_BYENG_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_BYENG_MARKETPLACE )
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( PREPARED_EVACUATION_BYENG )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_BYENG_MARKETPLACE )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_RURAL_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_RURAL_BYENG )
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( PREPARED_EVACUATION_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_RURAL_BYENG )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_RURAL_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_RURAL_RURAL )
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( PREPARED_EVACUATION_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_RURAL_RURAL )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_RURAL_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_RURAL_MARKETPLACE )
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( PREPARED_EVACUATION_RURAL )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_RURAL_MARKETPLACE )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_MARKETPLACE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_MARKETPLACE_BYENG )
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( PREPARED_EVACUATION_MARKETPLACE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_MARKETPLACE_BYENG )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_MARKETPLACE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_MARKETPLACE_RURAL )
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( PREPARED_EVACUATION_MARKETPLACE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_MARKETPLACE_RURAL )
+		)
+	)
+	(:action EVACUATE_POLICECHIEF_MARKETPLACE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_MARKETPLACE_MARKETPLACE )
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( PREPARED_EVACUATION_MARKETPLACE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 5)
+			( EVACUATED_MARKETPLACE_MARKETPLACE )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_BYENG )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_RURAL )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_MARKETPLACE )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_JOSEPH
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_JOSEPH )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_LUKES
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_LUKES )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_MESAFIRE
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_MESAFIRE )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_ADMINFIRE
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_ADMINFIRE )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_COURTSTATION
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_COURTSTATION )
+		)
+	)
+	(:action PREPARE_EVACUATION_POLICECHIEF_APACHESTATION
+		:parameters ()
+		:precondition
+		(and
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( PREPARED_EVACUATION_APACHESTATION )
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_BYENG_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_BYENG_BYENG )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_BYENG_BYENG )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_BYENG )
+			(not ( NEEDED_DIVERTED_TRAFFIC_BYENG_BYENG ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_BYENG_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_BYENG_RURAL )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_BYENG_RURAL )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_RURAL )
+			(not ( NEEDED_DIVERTED_TRAFFIC_BYENG_RURAL ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_BYENG_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_BYENG_MARKETPLACE )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_BYENG_MARKETPLACE )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_MARKETPLACE )
+			(not ( NEEDED_DIVERTED_TRAFFIC_BYENG_MARKETPLACE ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_RURAL_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_RURAL_BYENG )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_RURAL_BYENG )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_BYENG )
+			(not ( NEEDED_DIVERTED_TRAFFIC_RURAL_BYENG ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_RURAL_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_RURAL_RURAL )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_RURAL_RURAL )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_RURAL )
+			(not ( NEEDED_DIVERTED_TRAFFIC_RURAL_RURAL ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_RURAL_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_RURAL_MARKETPLACE )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_RURAL_MARKETPLACE )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_MARKETPLACE )
+			(not ( NEEDED_DIVERTED_TRAFFIC_RURAL_MARKETPLACE ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_MARKETPLACE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_MARKETPLACE_BYENG )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_MARKETPLACE_BYENG )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_BYENG )
+			(not ( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_BYENG ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_MARKETPLACE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_MARKETPLACE_RURAL )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_MARKETPLACE_RURAL )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_RURAL )
+			(not ( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_RURAL ))
+		)
+	)
+	(:action DIVERT_TRAFFIC_TRANSPORTCHIEF_MARKETPLACE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( BLOCKED_ROAD_MARKETPLACE_MARKETPLACE )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( TRAFFIC_DIVERTED_MARKETPLACE_MARKETPLACE )
+			( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_MARKETPLACE )
+			(not ( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_MARKETPLACE ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_BYENG_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_BYENG_BYENG )
+			( NEEDED_DIVERTED_TRAFFIC_BYENG_BYENG )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_BYENG ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_BYENG_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_BYENG_RURAL )
+			( NEEDED_DIVERTED_TRAFFIC_BYENG_RURAL )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_RURAL ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_BYENG_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_BYENG_MARKETPLACE )
+			( NEEDED_DIVERTED_TRAFFIC_BYENG_MARKETPLACE )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_BYENG_MARKETPLACE ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_RURAL_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_RURAL_BYENG )
+			( NEEDED_DIVERTED_TRAFFIC_RURAL_BYENG )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_BYENG ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_RURAL_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_RURAL_RURAL )
+			( NEEDED_DIVERTED_TRAFFIC_RURAL_RURAL )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_RURAL ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_RURAL_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_RURAL_MARKETPLACE )
+			( NEEDED_DIVERTED_TRAFFIC_RURAL_MARKETPLACE )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_RURAL_MARKETPLACE ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_MARKETPLACE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( DEPLOYED_POLICE_CARS_BYENG )
+			( POSITIONED_POLICEMEN_BYENG )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_MARKETPLACE_BYENG )
+			( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_BYENG )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_BYENG ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_MARKETPLACE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( DEPLOYED_POLICE_CARS_RURAL )
+			( POSITIONED_POLICEMEN_RURAL )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_MARKETPLACE_RURAL )
+			( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_RURAL )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_RURAL ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action BLOCK_ROAD_TRANSPORTCHIEF_MARKETPLACE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( BLOCKED_ROAD_MARKETPLACE_MARKETPLACE )
+			( NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_MARKETPLACE )
+			( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NOT_NEEDED_DIVERTED_TRAFFIC_MARKETPLACE_MARKETPLACE ))
+			(not ( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action ISSUE_LOCAL_ALERT_TRANSPORTCHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			( NOT_NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF )
+			(not ( NEEDED_ACTIVE_LOCAL_ALERT_TRANSPORTCHIEF ))
+		)
+	)
+	(:action ISSUE_LOCAL_ALERT_MEDICHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_MEDICHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_LOCAL_ALERT_MEDICHIEF )
+		)
+	)
+	(:action ISSUE_LOCAL_ALERT_FIRECHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_FIRECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_LOCAL_ALERT_FIRECHIEF )
+			( NOT_NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF )
+			(not ( NEEDED_ACTIVE_LOCAL_ALERT_FIRECHIEF ))
+		)
+	)
+	(:action ISSUE_LOCAL_ALERT_POLICECHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_LOCAL_ALERT_POLICECHIEF )
+		)
+	)
+	(:action SET_UP_HELPLINE_TRANSPORTCHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_TRANSPORTCHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_HELPLINE_TRANSPORTCHIEF )
+		)
+	)
+	(:action SET_UP_HELPLINE_MEDICHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_MEDICHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_HELPLINE_MEDICHIEF )
+		)
+	)
+	(:action SET_UP_HELPLINE_FIRECHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_FIRECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_HELPLINE_FIRECHIEF )
+		)
+	)
+	(:action SET_UP_HELPLINE_POLICECHIEF
+		:parameters ()
+		:precondition
+		(and
+			( MEDIA_CONTACTED_POLICECHIEF )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ACTIVE_HELPLINE_POLICECHIEF )
+		)
+	)
+	(:action CONTACT_MEDIA_TRANSPORTCHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( MEDIA_CONTACTED_TRANSPORTCHIEF )
+		)
+	)
+	(:action CONTACT_MEDIA_MEDICHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( MEDIA_CONTACTED_MEDICHIEF )
+		)
+	)
+	(:action CONTACT_MEDIA_FIRECHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( MEDIA_CONTACTED_FIRECHIEF )
+		)
+	)
+	(:action CONTACT_MEDIA_POLICECHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( MEDIA_CONTACTED_POLICECHIEF )
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_BYENG )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_RURAL )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_BYENG )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_RURAL )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_JOSEPH_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_JOSEPH )
+			( ALERTED_JOSEPH )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_BYENG )
+			(not ( ALERTED_JOSEPH ))
+			(not ( HAS_AMBULANCES_NUMBER_JOSEPH ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_JOSEPH_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_JOSEPH )
+			( ALERTED_JOSEPH )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_RURAL )
+			(not ( ALERTED_JOSEPH ))
+			(not ( HAS_AMBULANCES_NUMBER_JOSEPH ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_JOSEPH_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_JOSEPH )
+			( ALERTED_JOSEPH )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_MARKETPLACE )
+			(not ( ALERTED_JOSEPH ))
+			(not ( HAS_AMBULANCES_NUMBER_JOSEPH ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_BYENG )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_RURAL )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_MARKETPLACE )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_RESCUERS_FIRECHIEF_MESAFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_RESCUERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_RESCUERS_BYENG )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_RESCUERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_RESCUERS_FIRECHIEF_MESAFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_RESCUERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_RESCUERS_RURAL )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_RESCUERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_RESCUERS_FIRECHIEF_MESAFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_RESCUERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_RESCUERS_MARKETPLACE )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_RESCUERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_RESCUERS_FIRECHIEF_ADMINFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_RESCUERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_RESCUERS_BYENG )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_RESCUERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_RESCUERS_FIRECHIEF_ADMINFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_RESCUERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_RESCUERS_RURAL )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_RESCUERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_RESCUERS_FIRECHIEF_ADMINFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_RESCUERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_RESCUERS_MARKETPLACE )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_RESCUERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_HELICOPTERS_FIRECHIEF_MESAFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_HELICOPTERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_HELICOPTERS_BYENG )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_HELICOPTERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_HELICOPTERS_FIRECHIEF_MESAFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_HELICOPTERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_HELICOPTERS_RURAL )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_HELICOPTERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_HELICOPTERS_FIRECHIEF_MESAFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_HELICOPTERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_HELICOPTERS_MARKETPLACE )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_HELICOPTERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_HELICOPTERS_FIRECHIEF_ADMINFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_HELICOPTERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_HELICOPTERS_BYENG )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_HELICOPTERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_HELICOPTERS_FIRECHIEF_ADMINFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_HELICOPTERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_HELICOPTERS_RURAL )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_HELICOPTERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_HELICOPTERS_FIRECHIEF_ADMINFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_HELICOPTERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_HELICOPTERS_MARKETPLACE )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_HELICOPTERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_BULLDOZERS_FIRECHIEF_MESAFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BULLDOZERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_BULLDOZERS_BYENG )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_BULLDOZERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_BULLDOZERS_FIRECHIEF_MESAFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BULLDOZERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_BULLDOZERS_RURAL )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_BULLDOZERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_BULLDOZERS_FIRECHIEF_MESAFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BULLDOZERS_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_BULLDOZERS_MARKETPLACE )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_BULLDOZERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_BULLDOZERS_FIRECHIEF_ADMINFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BULLDOZERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_BULLDOZERS_BYENG )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_BULLDOZERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_BULLDOZERS_FIRECHIEF_ADMINFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BULLDOZERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_BULLDOZERS_RURAL )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_BULLDOZERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_BULLDOZERS_FIRECHIEF_ADMINFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BULLDOZERS_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_BULLDOZERS_MARKETPLACE )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_BULLDOZERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_LADDERS_FIRECHIEF_MESAFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_LADDERS_NUMBER_MESAFIRE )
+			( DEPLOYED_BIG_ENGINES_BYENG )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_LADDERS_BYENG )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_LADDERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_LADDERS_FIRECHIEF_MESAFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_LADDERS_NUMBER_MESAFIRE )
+			( DEPLOYED_BIG_ENGINES_RURAL )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_LADDERS_RURAL )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_LADDERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_LADDERS_FIRECHIEF_MESAFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_LADDERS_NUMBER_MESAFIRE )
+			( DEPLOYED_BIG_ENGINES_MARKETPLACE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_LADDERS_MARKETPLACE )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( HAS_LADDERS_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_LADDERS_FIRECHIEF_ADMINFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_LADDERS_NUMBER_ADMINFIRE )
+			( DEPLOYED_BIG_ENGINES_BYENG )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_LADDERS_BYENG )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_LADDERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_LADDERS_FIRECHIEF_ADMINFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_LADDERS_NUMBER_ADMINFIRE )
+			( DEPLOYED_BIG_ENGINES_RURAL )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_LADDERS_RURAL )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_LADDERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_LADDERS_FIRECHIEF_ADMINFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_LADDERS_NUMBER_ADMINFIRE )
+			( DEPLOYED_BIG_ENGINES_MARKETPLACE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 3)
+			( DEPLOYED_LADDERS_MARKETPLACE )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( HAS_LADDERS_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_BIG_ENGINES_FIRECHIEF_MESAFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BIG_ENGINES_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 4)
+			( DEPLOYED_ENGINES_BYENG )
+			( DEPLOYED_BIG_ENGINES_BYENG )
+			( NEEDED_BARRICADE_BYENG )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_BYENG ))
+			(not ( HAS_BIG_ENGINES_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_BIG_ENGINES_FIRECHIEF_MESAFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BIG_ENGINES_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 4)
+			( DEPLOYED_ENGINES_RURAL )
+			( DEPLOYED_BIG_ENGINES_RURAL )
+			( NEEDED_BARRICADE_RURAL )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_RURAL ))
+			(not ( HAS_BIG_ENGINES_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_BIG_ENGINES_FIRECHIEF_MESAFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BIG_ENGINES_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 4)
+			( DEPLOYED_ENGINES_MARKETPLACE )
+			( DEPLOYED_BIG_ENGINES_MARKETPLACE )
+			( NEEDED_BARRICADE_MARKETPLACE )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_MARKETPLACE ))
+			(not ( HAS_BIG_ENGINES_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_BIG_ENGINES_FIRECHIEF_ADMINFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BIG_ENGINES_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 4)
+			( DEPLOYED_ENGINES_BYENG )
+			( DEPLOYED_BIG_ENGINES_BYENG )
+			( NEEDED_BARRICADE_BYENG )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_BYENG ))
+			(not ( HAS_BIG_ENGINES_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_BIG_ENGINES_FIRECHIEF_ADMINFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BIG_ENGINES_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 4)
+			( DEPLOYED_ENGINES_RURAL )
+			( DEPLOYED_BIG_ENGINES_RURAL )
+			( NEEDED_BARRICADE_RURAL )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_RURAL ))
+			(not ( HAS_BIG_ENGINES_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_BIG_ENGINES_FIRECHIEF_ADMINFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_BIG_ENGINES_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 4)
+			( DEPLOYED_ENGINES_MARKETPLACE )
+			( DEPLOYED_BIG_ENGINES_MARKETPLACE )
+			( NEEDED_BARRICADE_MARKETPLACE )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_MARKETPLACE ))
+			(not ( HAS_BIG_ENGINES_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_SMALL_ENGINES_FIRECHIEF_MESAFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_SMALL_ENGINES_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_ENGINES_BYENG )
+			( DEPLOYED_SMALL_ENGINES_BYENG )
+			( NEEDED_BARRICADE_BYENG )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_BYENG ))
+			(not ( HAS_SMALL_ENGINES_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_SMALL_ENGINES_FIRECHIEF_MESAFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_SMALL_ENGINES_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_ENGINES_RURAL )
+			( DEPLOYED_SMALL_ENGINES_RURAL )
+			( NEEDED_BARRICADE_RURAL )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_RURAL ))
+			(not ( HAS_SMALL_ENGINES_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_SMALL_ENGINES_FIRECHIEF_MESAFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_SMALL_ENGINES_NUMBER_MESAFIRE )
+			( ALERTED_MESAFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_ENGINES_MARKETPLACE )
+			( DEPLOYED_SMALL_ENGINES_MARKETPLACE )
+			( NEEDED_BARRICADE_MARKETPLACE )
+			(not ( ALERTED_MESAFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_MARKETPLACE ))
+			(not ( HAS_SMALL_ENGINES_NUMBER_MESAFIRE ))
+		)
+	)
+	(:action DEPLOY_SMALL_ENGINES_FIRECHIEF_ADMINFIRE_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_ENGINES_BYENG )
+			( DEPLOYED_SMALL_ENGINES_BYENG )
+			( NEEDED_BARRICADE_BYENG )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_BYENG ))
+			(not ( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_SMALL_ENGINES_FIRECHIEF_ADMINFIRE_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_ENGINES_RURAL )
+			( DEPLOYED_SMALL_ENGINES_RURAL )
+			( NEEDED_BARRICADE_RURAL )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_RURAL ))
+			(not ( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_SMALL_ENGINES_FIRECHIEF_ADMINFIRE_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE )
+			( ALERTED_ADMINFIRE )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_ENGINES_MARKETPLACE )
+			( DEPLOYED_SMALL_ENGINES_MARKETPLACE )
+			( NEEDED_BARRICADE_MARKETPLACE )
+			(not ( ALERTED_ADMINFIRE ))
+			(not ( NOT_NEEDED_BARRICADE_MARKETPLACE ))
+			(not ( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_COURTSTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_COURTSTATION )
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_BYENG )
+			(not ( ALERTED_COURTSTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_COURTSTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_COURTSTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_COURTSTATION )
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_RURAL )
+			(not ( ALERTED_COURTSTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_COURTSTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_COURTSTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_COURTSTATION )
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			(not ( ALERTED_COURTSTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_COURTSTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_BYENG )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_RURAL )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action UPDATE_TRANSPORTCHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( UPDATED_TRANSPORTCHIEF )
+		)
+	)
+	(:action UPDATE_MEDICHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( UPDATED_MEDICHIEF )
+		)
+	)
+	(:action UPDATE_FIRECHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( UPDATED_FIRECHIEF )
+		)
+	)
+	(:action UPDATE_POLICECHIEF
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( UPDATED_POLICECHIEF )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_BYENG )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_RURAL )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MARKETPLACE )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_JOSEPH
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_JOSEPH )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_LUKES
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_LUKES )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_MESAFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MESAFIRE )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_ADMINFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_ADMINFIRE )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_COURTSTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_COURTSTATION )
+		)
+	)
+	(:action ALERT_TRANSPORTCHIEF_APACHESTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_APACHESTATION )
+		)
+	)
+	(:action ALERT_MEDICHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_BYENG )
+		)
+	)
+	(:action ALERT_MEDICHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_RURAL )
+		)
+	)
+	(:action ALERT_MEDICHIEF_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MARKETPLACE )
+		)
+	)
+	(:action ALERT_MEDICHIEF_JOSEPH
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_JOSEPH )
+		)
+	)
+	(:action ALERT_MEDICHIEF_LUKES
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_LUKES )
+		)
+	)
+	(:action ALERT_MEDICHIEF_MESAFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MESAFIRE )
+		)
+	)
+	(:action ALERT_MEDICHIEF_ADMINFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_ADMINFIRE )
+		)
+	)
+	(:action ALERT_MEDICHIEF_COURTSTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_COURTSTATION )
+		)
+	)
+	(:action ALERT_MEDICHIEF_APACHESTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_APACHESTATION )
+		)
+	)
+	(:action ALERT_FIRECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_BYENG )
+		)
+	)
+	(:action ALERT_FIRECHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_RURAL )
+		)
+	)
+	(:action ALERT_FIRECHIEF_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MARKETPLACE )
+		)
+	)
+	(:action ALERT_FIRECHIEF_JOSEPH
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_JOSEPH )
+		)
+	)
+	(:action ALERT_FIRECHIEF_LUKES
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_LUKES )
+		)
+	)
+	(:action ALERT_FIRECHIEF_MESAFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MESAFIRE )
+		)
+	)
+	(:action ALERT_FIRECHIEF_ADMINFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_ADMINFIRE )
+		)
+	)
+	(:action ALERT_FIRECHIEF_COURTSTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_COURTSTATION )
+		)
+	)
+	(:action ALERT_FIRECHIEF_APACHESTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_APACHESTATION )
+		)
+	)
+	(:action ALERT_POLICECHIEF_BYENG
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_BYENG )
+		)
+	)
+	(:action ALERT_POLICECHIEF_RURAL
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_RURAL )
+		)
+	)
+	(:action ALERT_POLICECHIEF_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MARKETPLACE )
+		)
+	)
+	(:action ALERT_POLICECHIEF_JOSEPH
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_JOSEPH )
+		)
+	)
+	(:action ALERT_POLICECHIEF_LUKES
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_LUKES )
+		)
+	)
+	(:action ALERT_POLICECHIEF_MESAFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_MESAFIRE )
+		)
+	)
+	(:action ALERT_POLICECHIEF_ADMINFIRE
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_ADMINFIRE )
+		)
+	)
+	(:action ALERT_POLICECHIEF_COURTSTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_COURTSTATION )
+		)
+	)
+	(:action ALERT_POLICECHIEF_APACHESTATION
+		:parameters ()
+		:precondition
+		(and
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( ALERTED_APACHESTATION )
+		)
+	)
+
+)

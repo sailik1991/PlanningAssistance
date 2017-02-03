@@ -1,0 +1,4 @@
+/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/search/CMakeFiles/downward.dir
+/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/preprocess/CMakeFiles/preprocess.dir
+/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/CMakeFiles/translate.dir
+/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/VAL/CMakeFiles/validate.dir

@@ -1,1 +1,21 @@
-hello
+<table class='table table-striped'>
+ <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Place</th>
+        <th>Count</th>
+    </tr>
+ </thead>
+ 
+ <tbody>
+    {% for r in resources %}
+       <tr>
+	  <td>{{ r.id }}</td>
+      <td>{{ r.name }}</td>
+      <td>{{ r.place }}</td>
+	  <td>{{ r.count }}</td>
+       </tr>
+    {% endfor %}
+ </tbody>
+</table>

@@ -1,14 +1,55 @@
-<div class="device-xs visible-xs"></div>
-    <div class="device-sm visible-sm"></div>
-    <div class="device-md visible-md"></div>
-    <div class="device-lg visible-lg"></div>
-    <div class="device-xl visible-xl"></div>
-    <div class="container-fluid">
-        <div class="grid-stack"></div>
+    <div>
+        <div class='col-md-9'>
+            <select class="form-control" id="actionToAdd">
+            {% for act in actions %}
+                    <option>{{act}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <button type="button" class="col-md-3 btn btn-primary addAction">Add</button>
+        
+        <br>
+        <br>
+        <button type="button" class="btn btn-block btn-info validatePlan">Validate</button>
+        <button type="button" class="btn-block btn btn-info suggestPlan">Suggest</button>
     </div>
-
+    <br>
+    <div class="grid-stack"></div>
     <script type="text/javascript">
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
         $(function () {
+            $('.addAction').click(function() {
+                var action = $('#actionToAdd').val();
+                console.log(action);
+                updateData(action);
+            });
+
+            $('.validatePlan').click(function() {
+                var res = _.map( $('.grid-stack > .grid-stack-item:visible'), function(el) {
+                    el = $(el)
+                    var node = el.data('_gridstack_node');
+                    return {
+                        name : node.el[0]['innerText'],
+                        x : node.x,
+                        y : node.y,
+                        width : node.width,
+                        height: node.height
+                    };
+                });
+                observations = JSON.stringify(res);
+                $.ajax({
+                    url: '/validatePlan',
+                    data: observations,
+                    type: 'POST',
+                    success: function(response) {
+                        alert('Planner might take a few minutes';
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+
             // thanks to http://stackoverflow.com/a/22885503
             var waitForFinalEvent=function(){var b={};return function(c,d,a){a||(a="I am a banana!");b[a]&&clearTimeout(b[a]);b[a]=setTimeout(c,d)}}();
             var fullDateString = new Date();
@@ -39,30 +80,35 @@
                     resizeGrid();
                 }, 300, fullDateString.getTime());
             });
-            new function () {
-                this.serializedData = [
-                    {x: 0, y: 0, width: 4, height: 2},
-                    {x: 3, y: 1, width: 4, height: 2},
-                    {x: 4, y: 1, width: 4, height: 1},
-                    {x: 2, y: 3, width: 8, height: 1},
-                    {x: 0, y: 4, width: 4, height: 1},
-                    {x: 0, y: 3, width: 4, height: 1},
-                    {x: 2, y: 4, width: 4, height: 1},
-                    {x: 2, y: 5, width: 4, height: 1},
-                    {x: 0, y: 6, width: 12, height: 1}
-                ];
-                this.grid = $('.grid-stack').data('gridstack');
-                this.loadGrid = function () {
-                    this.grid.removeAll();
-                    var items = GridStackUI.Utils.sort(this.serializedData);
-                    _.each(items, function (node, i) {
-                        this.grid.addWidget($('<div><div class="grid-stack-item-content">' + i + '</div></div>'),
-                            node.x, node.y, node.width, node.height);
-                    }, this);
-                    return false;
-                }.bind(this);
-                this.loadGrid();
+            
+            // call backend to get serialized data
+            serializedData = [
+                {% set count = 1 %}
+                {% for key, value in plan.iteritems() %}
+                    {y: {{ key }}, x: 0, width: 12, height: 1, name:'{{ value }}'},
+                    {% set count = count + 1 %}
+                {% endfor %}
+            ];
+            
+            function updateData(action) {
+                serializedData.push({y:1, x:0, width:12, height: 1, name:action});
+                loadGrid();
                 resizeGrid();
             };
+            
+            grid = $('.grid-stack').data('gridstack');
+            loadGrid = function () {
+                grid.removeAll();
+                var items = GridStackUI.Utils.sort(this.serializedData);
+                _.each(items, function (node, i) {
+                    grid.addWidget($('<div><div class="grid-stack-item-content">' + node.name + '</div></div>'),
+                    node.x, node.y, node.width, node.height);
+                });
+                return false;
+            };
+            
+            loadGrid();
+            resizeGrid();
+            
         });
     </script>

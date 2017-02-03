@@ -1,0 +1,5 @@
+Domain=BLOCKSWORLD-LETTER
+Problem=BW-RAND-3
+Preprocessing=0.0108
+Fluents=308
+Operators=580
