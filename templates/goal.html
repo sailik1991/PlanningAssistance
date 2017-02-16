@@ -1,0 +1,9 @@
+  <div class="panel-body">Select a goal:
+     <select class="form-control" id="goalToAchieve">
+         {% for goal in goals %}
+             <option>{{goal}}</option>
+         {% endfor %}
+     </select>
+     <br>
+     <button type="button" class="btn btn-block btn-info updateGoal">Update Goal</button>
+

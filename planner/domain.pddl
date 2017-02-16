@@ -4,7 +4,7 @@
 
 ;; TYPES
 (:types		police fire transport medic - agents
-			hospital policestation firestation pois - location
+		hospital policestation firestation pois - location
 )
 
 ;; PREDICATES

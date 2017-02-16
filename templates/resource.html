@@ -1,21 +1,68 @@
-<table class='table table-striped'>
- <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Place</th>
-        <th>Count</th>
-    </tr>
- </thead>
- 
- <tbody>
-    {% for r in resources %}
-       <tr>
-	  <td>{{ r.id }}</td>
-      <td>{{ r.name }}</td>
-      <td>{{ r.place }}</td>
-	  <td>{{ r.count }}</td>
-       </tr>
-    {% endfor %}
- </tbody>
-</table>
+<div class="panel panel-primary">
+    <div class="panel-heading">Fire Station's Resources</div> 
+    <table id="fireStationResources" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Fire Station</th>
+                <th>Small Engine</th>
+                <th>Big Engine</th>
+                <th>Ladders</th>
+                <th>Bulldozers</th>
+                <th>Rescuers</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Hospital's Resources</div> 
+    <table id="hospitalResources" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Hospital</th>
+                <th>Ambulance Availability</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Police Stations's Resources</div> 
+    <table id="policeStationResources" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Police Station</th>
+                <th>Police Cars</th>
+                <th>Policemen</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+    $('#fireStationResources').DataTable({
+        "paging": false,
+        "scrollX": false,
+        "searching": false,
+        "bInfo" : false,
+        "ajax": 'readFireStationResources'
+    });
+    $('#hospitalResources').DataTable({
+        "paging": false,
+        "scrollX": false,
+        "searching": false,
+        "bInfo" : false,
+        "ajax": 'readHospitalResources'
+    });
+    $('#policeStationResources').DataTable({
+        "paging": false,
+        "scrollX": false,
+        "searching": false,
+        "bInfo" : false,
+        "ajax": 'readPoliceStationResources'
+    });
+    updateResource = function(tableName, rowId, resourceName, presentState){
+        $.redirectPost('updateResources', {'tableName': tableName, 'rowId': rowId, 'resourceName': resourceName, 'presentState': presentState});         
+    };
+</script>

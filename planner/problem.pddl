@@ -40,7 +40,7 @@
 ( not_needed_active_local_alert transportchief )
 (not_needed_address_media )
 (has_small_engines_number adminfire)
-(has_big_engines_number adminfire)
+;(has_big_engines_number adminfire)
 (has_ladders_number adminfire)
 (has_bulldozers_number adminfire)
 (has_helicopters_number adminfire)

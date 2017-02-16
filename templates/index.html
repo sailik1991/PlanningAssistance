@@ -1,15 +1,23 @@
 {% include 'header.html' %}
-<div class='col-md-3 well' >
+<div class='col-md-5 well' style="min-height: 100%;">
     {% include 'plan.html' %} 
 </div>
 
-<div class='col-md-9'>
-    {% include 'resource.html' %}
-</div>        
-
-<div class='col-md-3'>
-    {% include 'map.html' %}
-</div>
-
+<div class='col-md-7'>
+    <div class='col-md-6' style="padding-top:10px;">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Goals</div>
+            {% include 'goal.html' %}
+            </div>
+        </div>
+    </div>
+    <div class='col-md-6' style="padding-top:10px;">  
+            <img style='width: 100%; object-fit: contain' src="https://maps.googleapis.com/maps/api/staticmap?size=700x300&markers=tempe" alt="Map of Tempe">
+    </div>
+    
+    <div class='col-md-12'>
+        {% include 'resource.html' %}
+    </div>
+</div>     
 
 {% include 'footer.html' %}
