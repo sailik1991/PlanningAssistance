@@ -73,7 +73,7 @@ class Planner():
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
             (out, err) = proc.communicate()
         except:
-            print('Failed to execute VAL on given plan')
+            print('[ERROR] Failed to execute VAL on given plan')
         if out:
             if 'Plan failed to execute' in out:
                 faults = out.split("Plan Repair Advice:\n")[1].strip()

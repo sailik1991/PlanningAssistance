@@ -10,7 +10,7 @@ planner = Planner()
 
 # Should comment out this call to prevent initialization of radar db at ever
 # server restart.
-dbCaller.initializeDatabase()
+#dbCaller.initializeDatabase()
 
 @app.route("/")
 def index():
