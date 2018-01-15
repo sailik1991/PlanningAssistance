@@ -87,7 +87,8 @@
 (extinguished_fire rural)
 (searched rural)
 ;( not_needed_search_casualties rural )
-;( not_needed_attend_casualties rural )
+;(not_needed_attend_casualties rural)
+
 (extinguished_fire byeng)
 (addressed_media)
 (not_needed_address_media )

@@ -1,0 +1,113 @@
+<div class="modal fade" id="planInProgressModal" tabindex="-1" role="dialog" aria-labelledby="planInProgressModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="planInProgressModalLabel">Plan In Progress Panel</h5>
+      </div>
+      <div class="modal-body">
+        This tab provides information regarding the "Plan in Progress" panel.  This panel lets you add an actions form the list of grounded actions in the domain.  You can select an action name and use the "Add" button for this purpose.
+        <br><br>
+        We understand once a human starts building a plan, it easy to loose track if it makes sense in the long run.  Thus we provide the "Validate" functionality that can report actions that are not feisable in the context of the plan made so far.  Lack of preconditions or ordering of actions are often the problem.
+        <br><br>
+        Lastly, if the human feels that it might be doing a sub-optimal plan and wants the planning assitant to generate a plan, he can use the "Suggest" button.
+        <br><br>
+        The action names is the grid are movable to ease the rearragment of actions.  To do this click on an action and move it to the desired place with the mouse button pressed.
+        <br><br>
+        <!--
+        <div class="col-md-12">
+            <div class="col-md-offset-3 col-md-6">
+        -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Key</div>
+                    <div class="glyphicon glyphicon-remove-circle"></div> - Delete action
+                    <br>
+                    <div class="glyphicon glyphicon-exclamation-sign" style="color:#ff4444"></div> - This action has a warning associate with it.
+                    <div style="background-color:#f9fbe7;border-radius: 6px;border: 1px solid black;border-color:#9e9d24;text-align:center;vertical-align:middle;">Suggested Action</div>
+                    <div style="background-color:#ffcdd2;border-radius: 6px;border: 1px solid black;border-color:#b71c1c;text-align:center;vertical-align:middle;">Invalid Action</div>
+                    <div style="background-color:#64ffda;border-radius: 6px;border: 1px solid black;border-color:#00695c;text-align:center;vertical-align:middle;">Added or Valid action</div>
+                </div>
+         <!--
+             </div>
+         </div>
+         -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="GoalsModal" tabindex="-1" role="dialog" aria-labelledby="GoalsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="GoalsModalLabel">Goals Panel</h5>
+      </div>
+      <div class="modal-body">
+        Select the goal you are adressing at present.  You can select another goal from the drop down and choose to update the planning problem you want assistance for.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ResourcesModal" tabindex="-1" role="dialog" aria-labelledby="ResourcesModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ResourcesModalLabel">Resources Panel</h5>
+      </div>
+      <div class="modal-body">
+        Lists the status of resources found at the Fire Stations, Hospitals, and Police Stations.
+        <br><br>
+        <div class="panel panel-default">
+            <div class="panel-heading">Key</div>
+            <br>
+            <div class="glyphicon glyphicon-ok" style="color:#00C851"></div> - Resouce is available
+            <br>
+            <div class="glyphicon glyphicon-remove" style="color:#ff4444"></div> - Resouce is unavailable
+        </div>
+        You can click on the <div class="glyphicon glyphicon-ok" style="color:#00C851"></div> and <div class="glyphicon glyphicon-remove" style="color:#ff4444"></div> to change the status of the resource in the actual environment.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Updates using script in plan.html -->
+<div class="modal fade" id="ExplanationsModal" tabindex="-1" role="dialog" aria-labelledby="ResourcesModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ExplanationsModalLabel">Explanations Panel</h5>
+      </div>
+      <div class="modal-body">
+        This shows the explanations between your model of the domain and the updated actual model of the domain.
+        <br>
+        <div class="exploader"></div>
+        <div id="generatedExplanations"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="updateModels btn btn-secondary">Update models</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(function () {
+        $('.updateModels').click(function() {
+            $('.page_content').fadeOut();
+            $('.loader').fadeIn();
+            $('form').attr("method", "post");
+            $('form').attr("action", "updateModels");
+            $('form').appendTo('body').submit();
+         });
+    });
+</script>

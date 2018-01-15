@@ -3,21 +3,23 @@
     {% include 'plan.html' %} 
 </div>
 
+<textarea id='speakText' style="display:none;">{{ script }}</textarea>
+
 <div class='col-md-7'>
-    <div class='col-md-6' style="padding-top:10px;">
+    <div class='col-md-12' style="padding-top:10px;">
         <div class="panel panel-primary">
-            <div class="panel-heading">Goals</div>
             {% include 'goal.html' %}
-            </div>
         </div>
     </div>
-    <div class='col-md-6' style="padding-top:10px;">  
-            <img style='width: 100%; object-fit: contain' src="https://maps.googleapis.com/maps/api/staticmap?size=700x300&markers=tempe" alt="Map of Tempe">
+    <div class='col-md-12' style="padding-bottom:10px;">  
+        {% include 'map.html' %}
     </div>
-    
+   
     <div class='col-md-12'>
         {% include 'resource.html' %}
     </div>
+    
 </div>     
 
+{% include 'helpModals.html' %}
 {% include 'footer.html' %}

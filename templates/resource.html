@@ -1,5 +1,10 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">Fire Station's Resources</div> 
+    <div class="panel-heading">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResourcesModal">
+            <div class="glyphicon glyphicon-info-sign"></div>
+        </button>    
+        Fire Station's Resources
+    </div> 
     <table id="fireStationResources" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -8,6 +13,7 @@
                 <th>Big Engine</th>
                 <th>Ladders</th>
                 <th>Bulldozers</th>
+                <th>Helicopters</th>
                 <th>Rescuers</th>
             </tr>
         </thead>
@@ -15,7 +21,12 @@
 </div>
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Hospital's Resources</div> 
+    <div class="panel-heading">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResourcesModal">
+            <div class="glyphicon glyphicon-info-sign"></div>
+        </button>
+        Hospital's Resources
+    </div> 
     <table id="hospitalResources" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -28,7 +39,12 @@
 
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Police Stations's Resources</div> 
+    <div class="panel-heading">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResourcesModal">
+            <div class="glyphicon glyphicon-info-sign"></div>
+        </button>    
+        Police Stations's Resources
+    </div> 
     <table id="policeStationResources" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -46,23 +62,52 @@
         "scrollX": false,
         "searching": false,
         "bInfo" : false,
-        "ajax": 'readFireStationResources'
+        "ajax": 'readFireStationResources',
+        "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+            var r = "{{resources}}".split('&#39;');
+            console.log(r);
+            for (var i=1; i<r.length; i=i+2) {
+                if ( aData[0] == r[i] ) {
+                    $('td', nRow).css('background-color', '#fff9c4');
+                }
+            }
+        }
     });
     $('#hospitalResources').DataTable({
         "paging": false,
         "scrollX": false,
         "searching": false,
         "bInfo" : false,
-        "ajax": 'readHospitalResources'
+        "ajax": 'readHospitalResources',
+        "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+            var r = "{{resources}}".split('&#39;');
+            console.log(r);
+            for (var i=1; i<r.length; i=i+2) {
+                if ( aData[0] == r[i] ) {
+                    $('td', nRow).css('background-color', '#fff9c4');
+                }
+            }
+        }
     });
     $('#policeStationResources').DataTable({
         "paging": false,
         "scrollX": false,
         "searching": false,
         "bInfo" : false,
-        "ajax": 'readPoliceStationResources'
+        "ajax": 'readPoliceStationResources',
+        "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+            var r = "{{resources}}".split('&#39;');
+            console.log(r);
+            for (var i=1; i<r.length; i=i+2) {
+                if ( aData[0] == r[i] ) {
+                    $('td', nRow).css('background-color', '#fff9c4');
+                }
+            }
+        }
     });
     updateResource = function(tableName, rowId, resourceName, presentState){
+        $('.content').fadeOut();
+        $('.loader').fadeIn();
         $.redirectPost('updateResources', {'tableName': tableName, 'rowId': rowId, 'resourceName': resourceName, 'presentState': presentState});         
     };
 </script>

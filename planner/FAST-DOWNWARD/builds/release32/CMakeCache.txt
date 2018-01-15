@@ -302,28 +302,28 @@ PLUGIN_SUM_EVALUATOR_ENABLED:BOOL=ON
 PLUGIN_WEIGHTED_EVALUATOR_ENABLED:BOOL=ON
 
 //Value Computed by CMake
-downward_BINARY_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/search
+downward_BINARY_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/builds/release32/search
 
 //Value Computed by CMake
-downward_SOURCE_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/src/search
+downward_SOURCE_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/src/search
 
 //Value Computed by CMake
-fast-downward_BINARY_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/builds/release32
+fast-downward_BINARY_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/builds/release32
 
 //Value Computed by CMake
-fast-downward_SOURCE_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/src
+fast-downward_SOURCE_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/src
 
 //Value Computed by CMake
-preprocess_BINARY_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/preprocess
+preprocess_BINARY_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/builds/release32/preprocess
 
 //Value Computed by CMake
-preprocess_SOURCE_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/src/preprocess
+preprocess_SOURCE_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/src/preprocess
 
 //Value Computed by CMake
-validate_BINARY_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/builds/release32/VAL
+validate_BINARY_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/builds/release32/VAL
 
 //Value Computed by CMake
-validate_SOURCE_DIR:STATIC=/home/yochan/Desktop/FAST-DOWNWARD/src/VAL
+validate_SOURCE_DIR:STATIC=/home/ssengu15/Dropbox\ (ASU)/code/PlanningAssistance/planner/FAST-DOWNWARD/src/VAL
 
 
 ########################

@@ -1,9 +1,31 @@
-  <div class="panel-body">Select a goal:
-     <select class="form-control" id="goalToAchieve">
-         {% for goal in goals %}
-             <option>{{goal}}</option>
-         {% endfor %}
-     </select>
-     <br>
-     <button type="button" class="btn btn-block btn-info updateGoal">Update Goal</button>
+<div class="panel-heading">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#GoalsModal">
+        <div class="glyphicon glyphicon-info-sign"></div>
+    </button>
+    Goals
+</div>  
+<div class="panel-body">Select a goal:
+    <select class="form-control" id="goalToAchieve">
+     {% for goal in goals %}
+         <option>{{goal}}</option>
+     {% endfor %}
+    </select>
+    <br>
+    <button type="button" class="btn btn-block btn-primary updateTheGoal">Update Goal</button>
+    <br>
+    {% for lm in landmarks%}
+        <span class="label label-warning" style="display:inline-table">{{lm}}</span>
+    {% endfor %}
+</div>
 
+<script>
+    $(function () { 
+        $(".updateTheGoal").click( function() {
+            var goal = $("#goalToAchieve option:selected").html();
+            console.log( goal )
+            $('.page_content').fadeOut();
+            $('.loader').fadeIn();
+            $.redirectPost('updateGoals', {'option': goal});
+        });
+    });
+</script>

@@ -1,0 +1,16 @@
+<option>(alert firechief adminfire)</option>
+<option>(deploy_big_engines firechief adminfire rural)</option>
+<option>(alert firechief adminfire)</option>
+<option>(contact_media firechief)</option>
+<option>(extinguish_big_fire firechief rural)</option>
+<option>(deploy_bulldozers firechief adminfire rural)</option>
+<option>(alert firechief adminfire)</option>
+<option>(deploy_helicopters firechief adminfire rural)</option>
+<option>(alert firechief adminfire)</option>
+<option>(alert firechief mesafire)</option>
+<option>(deploy_rescuers firechief mesafire rural)</option>
+<option>(search_casualties firechief rural)</option>
+<option>(deploy_small_engines firechief adminfire byeng)</option>
+<option>(extinguish_small_fire firechief byeng)</option>
+<option>(address_media firechief)</option>
+; cost = 28 <option>(general cost)</option>

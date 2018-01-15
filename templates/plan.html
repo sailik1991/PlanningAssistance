@@ -1,17 +1,44 @@
-    <div>
-        <div class='col-md-9'>
-            <select class="form-control" id="actionToAdd">
-            {% for act in actions %}
-                    <option>{{act}}</option>
-            {% endfor %}
-            </select>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#planInProgressModal">
+                <div class="glyphicon glyphicon-info-sign"></div>
+            </button>
+            Plan in Progress
         </div>
-        <button type="button" class="col-md-3 btn btn-primary addAction">Add</button>
-        
-        <br>
-        <br>
-        <button type="button" class="btn btn-block btn-info validatePlan">Validate</button>
-        <button type="button" class="btn-block btn btn-info suggestPlan">Suggest</button>
+        <div class="panel-body">
+            <div class='col-md-9'>
+                <select class="form-control" id="actionToAdd">
+                {% for act in actions %}
+                        <option>{{act}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <button type="button" class="col-md-3 btn btn-primary addAction">Add</button>
+            
+            <br>
+            <br>
+            <div class="col-md-3" style="padding:5px;">
+                <button type="button" class="col-md-12 btn btn-secondary validatePlan"><img src="{{ url_for('static',filename='images/validate.png') }}" height="35" alt="validate"><br>Validate</button>
+            </div>
+            <div class="col-md-3" style="padding:5px;">
+                <button type="button" class="col-md-12 btn btn-secondary fixPlan"><img src="{{ url_for('static',filename='images/fix.png') }}" height="35" alt="fix"><br>Fix</button>
+            </div>
+            <div class="col-md-3" style="padding:5px;">
+                <button type="button" class="col-md-12 btn btn-secondary suggestPlan"><img src="{{ url_for('static',filename='images/suggest.png') }}" height="35" alt="suggest"><br>Suggest</button>
+            </div>
+            <div class="col-md-3" style="padding:5px;">
+                <button type="button" class="col-md-12 btn btn-secondary undoChange"><img src="{{ url_for('static',filename='images/undo.png') }}" height="35" alt="undo"><br>Undo</button>
+            </div>
+            <!-- IF ELSE HERE -->
+            {% if canAskForExplanations > 0 %} 
+                <div class="col-md-6" style="padding:5px;">
+                    <button type="button" class="col-md-12 btn btn-secondary alternativePlan">Alternative<br>Plan</button>
+                </div>
+                <div class="col-md-6" style="padding:5px;">
+                    <button type="button" class="col-md-12 btn btn-secondary explainPlan" data-toggle="modal" data-target="#ExplanationsModal">Explain<br>this plan?</button>
+                </div>
+            {% endif %} 
+        </div>
     </div>
     <br>
     <div class="grid-stack"></div>
@@ -38,6 +65,7 @@
         });
     
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
         $(function () {
             $('.addAction').click(function() {
                 var action = $('#actionToAdd').val();
@@ -64,13 +92,66 @@
 
             $('.validatePlan').click(function() {
                 res = getGridStackData();
+                $('.page_content').fadeOut();
+                $('.loader').fadeIn();
                 $.redirectPost('validate', {'plan': JSON.stringify(res)});
             });
 
             $('.suggestPlan').click(function() {
                 res = getGridStackData();
+                $('.page_content').fadeOut();
+                $('.loader').fadeIn();
                 $.redirectPost('suggest', {'plan': JSON.stringify(res)});
             });
+            
+            $('.alternativePlan').click(function() {
+                res = getGridStackData();
+                $('.page_content').fadeOut();
+                $('.loader').fadeIn();
+                $.redirectPost('generateAlternative', {'plan': JSON.stringify(res)});
+            });
+            
+            /* 
+            $(".updateTheGoal").click( function() {
+                console.log( 'The commander ordered the goal to be updated' );
+                var goal = $("#goalToAchieve option:selected");
+                $('.page_content').fadeOut();
+                $('.loader').fadeIn();
+                $.redirectPost('updateGoals', {'option': goal});
+            });
+            */
+
+            $('.fixPlan').click(function() {
+                res = getGridStackData();
+                $('.page_content').fadeOut();
+                $('.loader').fadeIn();
+                $.redirectPost('fix', {'plan': JSON.stringify(res)});
+            });
+
+            $('.explainPlan').click(function() {
+                res = getGridStackData();
+                $.getJSON($SCRIPT_ROOT + '/getPlanExplanation', {
+                    'plan' : JSON.stringify(res)
+                }, function(data) {
+                    e = '<form>'
+                    for (var i in data) {
+                        val = data[i];
+                        e = e + '<input type="checkbox" name="' + val + '-reject">' + val + '</input><br>';
+                        e = e + '<input type="hidden" name="' + val + '"></input>';
+                    }
+                    e = e + '</form>'
+                    $('.exploader').fadeOut();
+                    $('#generatedExplanations').html(e);
+                });
+            });
+
+            $('.undoChange').click(function() {
+                res = getGridStackData();
+                $('.page_content').fadeOut();
+                $('.loader').fadeIn();
+                $.redirectPost('undo', {'plan': JSON.stringify(res)});
+            });
+
 
             // thanks to http://stackoverflow.com/a/22885503
             var waitForFinalEvent=function(){var b={};return function(c,d,a){a||(a="I am a banana!");b[a]&&clearTimeout(b[a]);b[a]=setTimeout(c,d)}}();
@@ -121,19 +202,20 @@
             grid = $('.grid-stack').data('gridstack');
             loadGrid = function () {
                 grid.removeAll();
+                remove_icon = "glyphicon glyphicon-remove-circle"
                 var items = GridStackUI.Utils.sort(this.serializedData);
                 _.each(items, function (node, i) {
                     if (node.name.includes(';--')) {
                         action_name = node.name.substr(0, node.name.indexOf(';'));
-                        grid.addWidget($('<div><div class="grid-stack-item-content" id="myWidget'+ node.y + '" style="background-color:#f9fbe7;border-radius: 6px;border: 1px solid black;border-color:#9e9d24;"><div class="glyphicon glyphicon-remove fa-remove' + node.y + '"></div><br>' + action_name + '</div></div>'),
+                        grid.addWidget($('<div><div class="grid-stack-item-content" id="myWidget'+ node.y + '" style="background-color:#fffde7;border-radius: 6px;border: 1px solid black;border-color:#fbc02d;padding-top:10px;"><div class="' + remove_icon + ' fa-remove' + node.y + '"  style="color:#fbc02d;"></div><br><span>' + action_name + '</span></div>'),
                         node.x, node.y, node.width, node.height);
                     } else if  (node.name.includes(';')) {
                         action_name = node.name.substr(0, node.name.indexOf(';'));
                         reason = node.name.substr(node.name.indexOf(';'), node.name.length);
-                        grid.addWidget($('<div><div class="grid-stack-item-content" id="myWidget'+ node.y + '" style="background-color:#ffcdd2;border-radius: 6px;border: 1px solid black;border-color:#b71c1c;"><div class="glyphicon glyphicon-remove fa-remove' + node.y + '"></div><br><span href="#" data-toggle="tooltip" data-placement="right" title="'+ reason +'">' + action_name + '</span></div>'),
+                        grid.addWidget($('<div><div class="grid-stack-item-content" id="myWidget'+ node.y + '" style="background-color:#ffab91;border-radius: 6px;border: 1px solid black;border-color:#d84315;padding-top:10px;"><div class="' + remove_icon + ' fa-remove' + node.y + '" style="color:#d84315;"></div>&nbsp;<div class="glyphicon glyphicon-exclamation-sign" style="color:#ff4444;" href="#" data-toggle="tooltip" data-placement="right" title="' + reason + '"></div><br><span>' + action_name + '</span></div>'),
                         node.x, node.y, node.width, node.height);
                     } else {
-                        grid.addWidget($('<div><div class="grid-stack-item-content" id="myWidget'+ node.y + '" style="background-color:#64ffda;border-radius: 6px;border: 1px solid black;border-color:#00695c;"><div class="glyphicon glyphicon-remove fa-remove' + node.y + '"></div><br>' + node.name + '</div></div>'),
+                        grid.addWidget($('<div><div class="grid-stack-item-content" id="myWidget'+ node.y + '" style="background-color:#b2dfdb;border-radius: 6px;border: 1px solid black;border-color:#00695c;padding-top:10px;"><div class="' + remove_icon + ' fa-remove' + node.y + '" style="color:#00695c;"></div><br><span>' + node.name + '</span></div>'),
                         node.x, node.y, node.width, node.height);
                     } 
                     $('.fa-remove' + node.y).click( remove_w = function(myElement){

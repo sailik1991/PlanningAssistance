@@ -34,14 +34,18 @@ class problemFileMaker:
         s += '(not_needed_address_media )\n'
         return s
 
-    def addInitialState(self):
+    def addInitialState(self, gs):
         s = ""
         initStateList = self.dbCaller.getTasks()
         self.notSmallFire = True
         for predicate in initStateList:
-            s += '(' + predicate[0] + ')\n'
-            if (predicate[0] =="small_fire_at byeng"):
-            	self.notSmallFire = False
+            if (predicate[0] == "small_fire_at byeng"):
+                if 'Small' in gs:
+                    s += '(' + predicate[0] + ')\n'
+                    self.notSmallFire = False
+            else:
+                s += '(' + predicate[0] + ')\n'
+
         s += '\n(=(total-cost) 0.0)\n\n'
 
         s += self.addNotNeeded()
@@ -55,7 +59,6 @@ class problemFileMaker:
                 pre = [p[1] for p in pred if p[0] == j]
                 if(i[j] > 0):
                     s += '('+ pre[0] +' '+ i[0] +')\n'
-        print "============\n{0}\n=============".format(s)
         return s
 
     def addFireStationResources(self):

@@ -4,314 +4,302 @@ end_version
 begin_metric
 1
 end_metric
-45
+43
 begin_variable
-var91
+var150
 -1
 2
-Atom media_contacted(transportchief)
-NegatedAtom media_contacted(transportchief)
+Atom media_contacted_transportchief()
+NegatedAtom media_contacted_transportchief()
 end_variable
 begin_variable
-var90
+var149
 -1
 2
-Atom media_contacted(policechief)
-NegatedAtom media_contacted(policechief)
+Atom media_contacted_policechief()
+NegatedAtom media_contacted_policechief()
 end_variable
 begin_variable
-var89
+var148
 -1
 2
-Atom media_contacted(medichief)
-NegatedAtom media_contacted(medichief)
+Atom media_contacted_medichief()
+NegatedAtom media_contacted_medichief()
 end_variable
 begin_variable
-var88
+var147
 -1
 2
-Atom media_contacted(firechief)
-NegatedAtom media_contacted(firechief)
+Atom media_contacted_firechief()
+NegatedAtom media_contacted_firechief()
 end_variable
 begin_variable
-var14
+var15
 -1
 2
-Atom alerted(lukes)
-NegatedAtom alerted(lukes)
+Atom alerted_lukes()
+NegatedAtom alerted_lukes()
 end_variable
 begin_variable
-var73
+var127
 -1
 2
-Atom has_ambulances_number(lukes)
-NegatedAtom has_ambulances_number(lukes)
+Atom has_ambulances_number_lukes()
+NegatedAtom has_ambulances_number_lukes()
 end_variable
 begin_variable
 var13
 -1
 2
-Atom alerted(joseph)
-NegatedAtom alerted(joseph)
+Atom alerted_joseph()
+NegatedAtom alerted_joseph()
 end_variable
 begin_variable
-var72
+var126
 -1
 2
-Atom has_ambulances_number(joseph)
-NegatedAtom has_ambulances_number(joseph)
+Atom has_ambulances_number_joseph()
+NegatedAtom has_ambulances_number_joseph()
 end_variable
 begin_variable
-var34
+var54
 -1
 2
-Atom deployed_ambulances(rural)
-NegatedAtom deployed_ambulances(rural)
+Atom deployed_ambulances_byeng()
+NegatedAtom deployed_ambulances_byeng()
 end_variable
 begin_variable
-var32
+var59
 -1
 2
-Atom deployed_ambulances(byeng)
-NegatedAtom deployed_ambulances(byeng)
+Atom deployed_big_engines_byeng()
+NegatedAtom deployed_big_engines_byeng()
 end_variable
 begin_variable
-var75
+var60
 -1
 2
-Atom has_big_engines_number(mesafire)
-NegatedAtom has_big_engines_number(mesafire)
+Atom deployed_big_engines_lake()
+NegatedAtom deployed_big_engines_lake()
 end_variable
 begin_variable
-var77
+var61
 -1
 2
-Atom has_bulldozers_number(mesafire)
-NegatedAtom has_bulldozers_number(mesafire)
+Atom deployed_big_engines_marketplace()
+NegatedAtom deployed_big_engines_marketplace()
 end_variable
 begin_variable
-var79
+var62
 -1
 2
-Atom has_helicopters_number(mesafire)
-NegatedAtom has_helicopters_number(mesafire)
+Atom deployed_big_engines_mill()
+NegatedAtom deployed_big_engines_mill()
 end_variable
 begin_variable
-var85
+var63
 -1
-2
-Atom has_rescuers_number(mesafire)
-NegatedAtom has_rescuers_number(mesafire)
+3
+Atom deployed_big_engines_rural()
+Atom has_big_engines_number_adminfire()
+<none of those>
 end_variable
 begin_variable
-var87
+var128
 -1
 2
-Atom has_small_engines_number(mesafire)
-NegatedAtom has_small_engines_number(mesafire)
+Atom has_bulldozers_number_adminfire()
+NegatedAtom has_bulldozers_number_adminfire()
 end_variable
 begin_variable
-var74
+var139
 -1
 2
-Atom has_big_engines_number(adminfire)
-NegatedAtom has_big_engines_number(adminfire)
+Atom has_rescuers_number_adminfire()
+NegatedAtom has_rescuers_number_adminfire()
 end_variable
 begin_variable
-var35
+var143
 -1
 2
-Atom deployed_big_engines(byeng)
-NegatedAtom deployed_big_engines(byeng)
+Atom has_small_engines_number_adminfire()
+NegatedAtom has_small_engines_number_adminfire()
 end_variable
 begin_variable
-var36
+var132
 -1
 2
-Atom deployed_big_engines(marketplace)
-NegatedAtom deployed_big_engines(marketplace)
-end_variable
-begin_variable
-var37
--1
-2
-Atom deployed_big_engines(rural)
-NegatedAtom deployed_big_engines(rural)
-end_variable
-begin_variable
-var76
--1
-2
-Atom has_bulldozers_number(adminfire)
-NegatedAtom has_bulldozers_number(adminfire)
-end_variable
-begin_variable
-var78
--1
-2
-Atom has_helicopters_number(adminfire)
-NegatedAtom has_helicopters_number(adminfire)
-end_variable
-begin_variable
-var84
--1
-2
-Atom has_rescuers_number(adminfire)
-NegatedAtom has_rescuers_number(adminfire)
-end_variable
-begin_variable
-var86
--1
-2
-Atom has_small_engines_number(adminfire)
-NegatedAtom has_small_engines_number(adminfire)
-end_variable
-begin_variable
-var16
--1
-2
-Atom alerted(mesafire)
-NegatedAtom alerted(mesafire)
-end_variable
-begin_variable
-var81
--1
-2
-Atom has_ladders_number(mesafire)
-NegatedAtom has_ladders_number(mesafire)
-end_variable
-begin_variable
-var80
--1
-2
-Atom has_ladders_number(adminfire)
-NegatedAtom has_ladders_number(adminfire)
+Atom has_ladders_number_adminfire()
+NegatedAtom has_ladders_number_adminfire()
 end_variable
 begin_variable
 var9
 -1
 2
-Atom alerted(adminfire)
-NegatedAtom alerted(adminfire)
+Atom alerted_adminfire()
+NegatedAtom alerted_adminfire()
 end_variable
 begin_variable
-var55
+var125
 -1
 2
-Atom deployed_rescuers(rural)
-NegatedAtom deployed_rescuers(rural)
+Atom fire_at_byeng()
+Atom needed_search_casualties_byeng()
 end_variable
 begin_variable
-var53
+var124
 -1
 2
-Atom deployed_rescuers(byeng)
-NegatedAtom deployed_rescuers(byeng)
+Atom extinguished_fire_byeng()
+NegatedAtom extinguished_fire_byeng()
 end_variable
 begin_variable
-var46
+var78
 -1
-2
-Atom deployed_helicopters(rural)
-NegatedAtom deployed_helicopters(rural)
+3
+Atom deployed_helicopters_rural()
+Atom has_helicopters_number_scottsfire()
+<none of those>
 end_variable
 begin_variable
-var44
+var131
 -1
 2
-Atom deployed_helicopters(byeng)
-NegatedAtom deployed_helicopters(byeng)
+Atom has_bulldozers_number_scottsfire()
+NegatedAtom has_bulldozers_number_scottsfire()
 end_variable
 begin_variable
-var41
+var135
 -1
 2
-Atom deployed_engines(byeng)
-NegatedAtom deployed_engines(byeng)
-end_variable
-begin_variable
-var70
--1
-2
-Atom fire_at(byeng)
-Atom needed_search_casualties(byeng)
+Atom has_ladders_number_scottsfire()
+NegatedAtom has_ladders_number_scottsfire()
 end_variable
 begin_variable
 var142
 -1
 2
-Atom small_fire_at(byeng)
-NegatedAtom small_fire_at(byeng)
+Atom has_rescuers_number_scottsfire()
+NegatedAtom has_rescuers_number_scottsfire()
 end_variable
 begin_variable
-var68
+var146
 -1
 2
-Atom extinguished_fire(byeng)
-NegatedAtom extinguished_fire(byeng)
+Atom has_small_engines_number_scottsfire()
+NegatedAtom has_small_engines_number_scottsfire()
 end_variable
 begin_variable
-var40
+var21
 -1
 2
-Atom deployed_bulldozers(rural)
-NegatedAtom deployed_bulldozers(rural)
+Atom alerted_scottsfire()
+NegatedAtom alerted_scottsfire()
 end_variable
 begin_variable
-var38
+var74
 -1
 2
-Atom deployed_bulldozers(byeng)
-NegatedAtom deployed_bulldozers(byeng)
+Atom deployed_helicopters_byeng()
+NegatedAtom deployed_helicopters_byeng()
 end_variable
 begin_variable
-var95
+var130
 -1
 2
-Atom needed_attend_casualties(byeng)
-NegatedAtom needed_attend_casualties(byeng)
+Atom has_bulldozers_number_phxfire()
+NegatedAtom has_bulldozers_number_phxfire()
 end_variable
 begin_variable
-var71
+var134
 -1
 2
-Atom fire_at(rural)
-Atom needed_search_casualties(rural)
-end_variable
-begin_variable
-var69
--1
-2
-Atom extinguished_fire(rural)
-NegatedAtom extinguished_fire(rural)
+Atom has_ladders_number_phxfire()
+NegatedAtom has_ladders_number_phxfire()
 end_variable
 begin_variable
 var141
 -1
 2
-Atom searched(rural)
-NegatedAtom searched(rural)
+Atom has_rescuers_number_phxfire()
+NegatedAtom has_rescuers_number_phxfire()
 end_variable
 begin_variable
-var96
+var145
 -1
 2
-Atom needed_attend_casualties(rural)
-NegatedAtom needed_attend_casualties(rural)
+Atom has_small_engines_number_phxfire()
+NegatedAtom has_small_engines_number_phxfire()
 end_variable
 begin_variable
-var94
+var19
+-1
+2
+Atom alerted_phxfire()
+NegatedAtom alerted_phxfire()
+end_variable
+begin_variable
+var129
+-1
+2
+Atom has_bulldozers_number_mesafire()
+NegatedAtom has_bulldozers_number_mesafire()
+end_variable
+begin_variable
+var133
+-1
+2
+Atom has_ladders_number_mesafire()
+NegatedAtom has_ladders_number_mesafire()
+end_variable
+begin_variable
+var140
+-1
+2
+Atom has_rescuers_number_mesafire()
+NegatedAtom has_rescuers_number_mesafire()
+end_variable
+begin_variable
+var144
+-1
+2
+Atom has_small_engines_number_mesafire()
+NegatedAtom has_small_engines_number_mesafire()
+end_variable
+begin_variable
+var17
+-1
+2
+Atom alerted_mesafire()
+NegatedAtom alerted_mesafire()
+end_variable
+begin_variable
+var89
+-1
+2
+Atom deployed_rescuers_byeng()
+NegatedAtom deployed_rescuers_byeng()
+end_variable
+begin_variable
+var64
+-1
+2
+Atom deployed_bulldozers_byeng()
+NegatedAtom deployed_bulldozers_byeng()
+end_variable
+begin_variable
+var154
+-1
+2
+Atom needed_attend_casualties_byeng()
+NegatedAtom needed_attend_casualties_byeng()
+end_variable
+begin_variable
+var153
 -1
 2
 Atom needed_address_media()
 NegatedAtom needed_address_media()
-end_variable
-begin_variable
-var111
--1
-2
-Atom not_needed_address_media()
-NegatedAtom not_needed_address_media()
 end_variable
 begin_variable
 var8
@@ -320,21 +308,36 @@ var8
 Atom addressed_media()
 NegatedAtom addressed_media()
 end_variable
-3
+6
 begin_mutex_group
 2
-34 0
-32 0
+9 0
+13 1
 end_mutex_group
 begin_mutex_group
 2
-39 0
-38 0
+10 0
+13 1
 end_mutex_group
 begin_mutex_group
 2
-39 0
-38 0
+11 0
+13 1
+end_mutex_group
+begin_mutex_group
+2
+12 0
+13 1
+end_mutex_group
+begin_mutex_group
+2
+27 0
+21 1
+end_mutex_group
+begin_mutex_group
+2
+20 0
+19 0
 end_mutex_group
 begin_state
 1
@@ -347,12 +350,7 @@ begin_state
 0
 1
 1
-0
-0
-0
-0
-0
-0
+1
 1
 1
 1
@@ -362,255 +360,279 @@ begin_state
 0
 1
 0
+1
+1
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+1
+0
+0
+0
 0
 1
 1
 1
 1
 1
-1
-0
-0
-1
-1
-1
-1
-0
-1
-1
-1
-1
-0
 1
 end_state
 begin_goal
-5
-34 0
-39 0
-40 0
-43 0
-44 0
+2
+20 0
+42 0
 end_goal
-73
+135
 begin_operator
-address_media firechief
+address_media_firechief 
 1
 3 0
-3
-0 44 -1 0
-0 42 0 1
-0 43 -1 0
 2
-end_operator
-begin_operator
-address_media medichief
-1
-2 0
-3
-0 44 -1 0
-0 42 0 1
-0 43 -1 0
-2
-end_operator
-begin_operator
-address_media policechief
-1
-1 0
-3
-0 44 -1 0
-0 42 0 1
-0 43 -1 0
-2
-end_operator
-begin_operator
-address_media transportchief
-1
-0 0
-3
-0 44 -1 0
-0 42 0 1
-0 43 -1 0
-2
-end_operator
-begin_operator
-alert firechief adminfire
-0
-1
-0 26 -1 0
-1
-end_operator
-begin_operator
-alert firechief joseph
-0
-1
-0 6 -1 0
-1
-end_operator
-begin_operator
-alert firechief lukes
-0
-1
-0 4 -1 0
-1
-end_operator
-begin_operator
-alert firechief mesafire
-0
-1
-0 23 -1 0
-1
-end_operator
-begin_operator
-alert medichief adminfire
-0
-1
-0 26 -1 0
-1
-end_operator
-begin_operator
-alert medichief joseph
-0
-1
-0 6 -1 0
-1
-end_operator
-begin_operator
-alert medichief lukes
-0
-1
-0 4 -1 0
-1
-end_operator
-begin_operator
-alert medichief mesafire
-0
-1
-0 23 -1 0
-1
-end_operator
-begin_operator
-alert policechief adminfire
-0
-1
-0 26 -1 0
-1
-end_operator
-begin_operator
-alert policechief joseph
-0
-1
-0 6 -1 0
-1
-end_operator
-begin_operator
-alert policechief lukes
-0
-1
-0 4 -1 0
-1
-end_operator
-begin_operator
-alert policechief mesafire
-0
-1
-0 23 -1 0
-1
-end_operator
-begin_operator
-alert transportchief adminfire
-0
-1
-0 26 -1 0
-1
-end_operator
-begin_operator
-alert transportchief joseph
-0
-1
-0 6 -1 0
-1
-end_operator
-begin_operator
-alert transportchief lukes
-0
-1
-0 4 -1 0
-1
-end_operator
-begin_operator
-alert transportchief mesafire
-0
-1
-0 23 -1 0
-1
-end_operator
-begin_operator
-attend_casualties medichief byeng
-1
-9 0
-3
-0 42 -1 0
-0 37 0 1
-0 43 -1 1
-3
-end_operator
-begin_operator
-attend_casualties medichief rural
-1
-8 0
-3
 0 42 -1 0
 0 41 0 1
-0 43 -1 1
+2
+end_operator
+begin_operator
+address_media_medichief 
+1
+2 0
+2
+0 42 -1 0
+0 41 0 1
+2
+end_operator
+begin_operator
+address_media_policechief 
+1
+1 0
+2
+0 42 -1 0
+0 41 0 1
+2
+end_operator
+begin_operator
+address_media_transportchief 
+1
+0 0
+2
+0 42 -1 0
+0 41 0 1
+2
+end_operator
+begin_operator
+alert_firechief_adminfire 
+0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+alert_firechief_joseph 
+0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+alert_firechief_lukes 
+0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+alert_firechief_mesafire 
+0
+1
+0 37 -1 0
+1
+end_operator
+begin_operator
+alert_firechief_phxfire 
+0
+1
+0 32 -1 0
+1
+end_operator
+begin_operator
+alert_firechief_scottsfire 
+0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+alert_medichief_adminfire 
+0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+alert_medichief_joseph 
+0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+alert_medichief_lukes 
+0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+alert_medichief_mesafire 
+0
+1
+0 37 -1 0
+1
+end_operator
+begin_operator
+alert_medichief_phxfire 
+0
+1
+0 32 -1 0
+1
+end_operator
+begin_operator
+alert_medichief_scottsfire 
+0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+alert_policechief_adminfire 
+0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+alert_policechief_joseph 
+0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+alert_policechief_lukes 
+0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+alert_policechief_mesafire 
+0
+1
+0 37 -1 0
+1
+end_operator
+begin_operator
+alert_policechief_phxfire 
+0
+1
+0 32 -1 0
+1
+end_operator
+begin_operator
+alert_policechief_scottsfire 
+0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+alert_transportchief_adminfire 
+0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+alert_transportchief_joseph 
+0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+alert_transportchief_lukes 
+0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+alert_transportchief_mesafire 
+0
+1
+0 37 -1 0
+1
+end_operator
+begin_operator
+alert_transportchief_phxfire 
+0
+1
+0 32 -1 0
+1
+end_operator
+begin_operator
+alert_transportchief_scottsfire 
+0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+attend_casualties_medichief_byeng 
+1
+8 0
+2
+0 41 -1 0
+0 40 0 1
 3
 end_operator
 begin_operator
-contact_media firechief
+contact_media_firechief 
 0
 1
 0 3 -1 0
 1
 end_operator
 begin_operator
-contact_media medichief
+contact_media_medichief 
 0
 1
 0 2 -1 0
 1
 end_operator
 begin_operator
-contact_media policechief
+contact_media_policechief 
 0
 1
 0 1 -1 0
 1
 end_operator
 begin_operator
-contact_media transportchief
+contact_media_transportchief 
 0
 1
 0 0 -1 0
 1
 end_operator
 begin_operator
-deploy_ambulances policechief joseph byeng
-0
-3
-0 6 0 1
-0 9 -1 0
-0 7 0 1
-2
-end_operator
-begin_operator
-deploy_ambulances policechief joseph marketplace
-0
-2
-0 6 0 1
-0 7 0 1
-2
-end_operator
-begin_operator
-deploy_ambulances policechief joseph rural
+deploy_ambulances_policechief_joseph_byeng 
 0
 3
 0 6 0 1
@@ -619,24 +641,39 @@ deploy_ambulances policechief joseph rural
 2
 end_operator
 begin_operator
-deploy_ambulances policechief lukes byeng
+deploy_ambulances_policechief_joseph_lake 
 0
-3
-0 4 0 1
-0 9 -1 0
-0 5 0 1
+2
+0 6 0 1
+0 7 0 1
 2
 end_operator
 begin_operator
-deploy_ambulances policechief lukes marketplace
+deploy_ambulances_policechief_joseph_marketplace 
 0
 2
-0 4 0 1
-0 5 0 1
+0 6 0 1
+0 7 0 1
 2
 end_operator
 begin_operator
-deploy_ambulances policechief lukes rural
+deploy_ambulances_policechief_joseph_mill 
+0
+2
+0 6 0 1
+0 7 0 1
+2
+end_operator
+begin_operator
+deploy_ambulances_policechief_joseph_rural 
+0
+2
+0 6 0 1
+0 7 0 1
+2
+end_operator
+begin_operator
+deploy_ambulances_policechief_lukes_byeng 
 0
 3
 0 4 0 1
@@ -645,382 +682,815 @@ deploy_ambulances policechief lukes rural
 2
 end_operator
 begin_operator
-deploy_big_engines firechief adminfire byeng
+deploy_ambulances_policechief_lukes_lake 
 0
-4
-0 26 0 1
-0 16 -1 0
-0 31 -1 0
-0 15 0 1
-4
+2
+0 4 0 1
+0 5 0 1
+2
 end_operator
 begin_operator
-deploy_big_engines firechief adminfire marketplace
+deploy_ambulances_policechief_lukes_marketplace 
+0
+2
+0 4 0 1
+0 5 0 1
+2
+end_operator
+begin_operator
+deploy_ambulances_policechief_lukes_mill 
+0
+2
+0 4 0 1
+0 5 0 1
+2
+end_operator
+begin_operator
+deploy_ambulances_policechief_lukes_rural 
+0
+2
+0 4 0 1
+0 5 0 1
+2
+end_operator
+begin_operator
+deploy_big_engines_firechief_adminfire_byeng 
 0
 3
-0 26 0 1
-0 17 -1 0
-0 15 0 1
-4
-end_operator
-begin_operator
-deploy_big_engines firechief adminfire rural
-0
-3
-0 26 0 1
-0 18 -1 0
-0 15 0 1
-4
-end_operator
-begin_operator
-deploy_big_engines firechief mesafire byeng
-0
-4
-0 23 0 1
-0 16 -1 0
-0 31 -1 0
-0 10 0 1
-4
-end_operator
-begin_operator
-deploy_big_engines firechief mesafire marketplace
-0
-3
-0 23 0 1
-0 17 -1 0
-0 10 0 1
+0 18 0 1
+0 9 -1 0
+0 13 1 2
 4
 end_operator
 begin_operator
-deploy_big_engines firechief mesafire rural
+deploy_big_engines_firechief_adminfire_lake 
 0
 3
-0 23 0 1
-0 18 -1 0
-0 10 0 1
+0 18 0 1
+0 10 -1 0
+0 13 1 2
 4
 end_operator
 begin_operator
-deploy_bulldozers firechief adminfire byeng
+deploy_big_engines_firechief_adminfire_marketplace 
 0
 3
-0 26 0 1
-0 36 -1 0
-0 19 0 1
-3
+0 18 0 1
+0 11 -1 0
+0 13 1 2
+4
 end_operator
 begin_operator
-deploy_bulldozers firechief adminfire marketplace
-0
-2
-0 26 0 1
-0 19 0 1
-3
-end_operator
-begin_operator
-deploy_bulldozers firechief adminfire rural
+deploy_big_engines_firechief_adminfire_mill 
 0
 3
-0 26 0 1
-0 35 -1 0
-0 19 0 1
-3
+0 18 0 1
+0 12 -1 0
+0 13 1 2
+4
 end_operator
 begin_operator
-deploy_bulldozers firechief mesafire byeng
-0
-3
-0 23 0 1
-0 36 -1 0
-0 11 0 1
-3
-end_operator
-begin_operator
-deploy_bulldozers firechief mesafire marketplace
+deploy_big_engines_firechief_adminfire_rural 
 0
 2
-0 23 0 1
-0 11 0 1
-3
+0 18 0 1
+0 13 1 0
+4
 end_operator
 begin_operator
-deploy_bulldozers firechief mesafire rural
+deploy_bulldozers_firechief_adminfire_byeng 
 0
 3
-0 23 0 1
-0 35 -1 0
-0 11 0 1
-3
-end_operator
-begin_operator
-deploy_helicopters firechief adminfire byeng
-0
-3
-0 26 0 1
-0 30 -1 0
-0 20 0 1
-3
-end_operator
-begin_operator
-deploy_helicopters firechief adminfire marketplace
-0
-2
-0 26 0 1
-0 20 0 1
-3
-end_operator
-begin_operator
-deploy_helicopters firechief adminfire rural
-0
-3
-0 26 0 1
-0 29 -1 0
-0 20 0 1
-3
-end_operator
-begin_operator
-deploy_helicopters firechief mesafire byeng
-0
-3
-0 23 0 1
-0 30 -1 0
-0 12 0 1
-3
-end_operator
-begin_operator
-deploy_helicopters firechief mesafire marketplace
-0
-2
-0 23 0 1
-0 12 0 1
-3
-end_operator
-begin_operator
-deploy_helicopters firechief mesafire rural
-0
-3
-0 23 0 1
-0 29 -1 0
-0 12 0 1
-3
-end_operator
-begin_operator
-deploy_ladders firechief adminfire byeng
-1
-16 0
-2
-0 26 0 1
-0 25 0 1
-3
-end_operator
-begin_operator
-deploy_ladders firechief adminfire marketplace
-1
-17 0
-2
-0 26 0 1
-0 25 0 1
-3
-end_operator
-begin_operator
-deploy_ladders firechief adminfire rural
-1
-18 0
-2
-0 26 0 1
-0 25 0 1
-3
-end_operator
-begin_operator
-deploy_ladders firechief mesafire byeng
-1
-16 0
-2
-0 23 0 1
-0 24 0 1
-3
-end_operator
-begin_operator
-deploy_ladders firechief mesafire marketplace
-1
-17 0
-2
-0 23 0 1
-0 24 0 1
-3
-end_operator
-begin_operator
-deploy_ladders firechief mesafire rural
-1
-18 0
-2
-0 23 0 1
-0 24 0 1
-3
-end_operator
-begin_operator
-deploy_rescuers firechief adminfire byeng
-0
-3
-0 26 0 1
-0 28 -1 0
-0 21 0 1
-3
-end_operator
-begin_operator
-deploy_rescuers firechief adminfire marketplace
-0
-2
-0 26 0 1
-0 21 0 1
-3
-end_operator
-begin_operator
-deploy_rescuers firechief adminfire rural
-0
-3
-0 26 0 1
-0 27 -1 0
-0 21 0 1
-3
-end_operator
-begin_operator
-deploy_rescuers firechief mesafire byeng
-0
-3
-0 23 0 1
-0 28 -1 0
-0 13 0 1
-3
-end_operator
-begin_operator
-deploy_rescuers firechief mesafire marketplace
-0
-2
-0 23 0 1
-0 13 0 1
-3
-end_operator
-begin_operator
-deploy_rescuers firechief mesafire rural
-0
-3
-0 23 0 1
-0 27 -1 0
-0 13 0 1
-3
-end_operator
-begin_operator
-deploy_small_engines firechief adminfire byeng
-0
-3
-0 26 0 1
-0 31 -1 0
-0 22 0 1
-2
-end_operator
-begin_operator
-deploy_small_engines firechief adminfire marketplace
-0
-2
-0 26 0 1
-0 22 0 1
-2
-end_operator
-begin_operator
-deploy_small_engines firechief adminfire rural
-0
-2
-0 26 0 1
-0 22 0 1
-2
-end_operator
-begin_operator
-deploy_small_engines firechief mesafire byeng
-0
-3
-0 23 0 1
-0 31 -1 0
-0 14 0 1
-2
-end_operator
-begin_operator
-deploy_small_engines firechief mesafire marketplace
-0
-2
-0 23 0 1
-0 14 0 1
-2
-end_operator
-begin_operator
-deploy_small_engines firechief mesafire rural
-0
-2
-0 23 0 1
-0 14 0 1
-2
-end_operator
-begin_operator
-extinguish_big_fire firechief byeng
-1
-16 0
-2
-0 34 -1 0
-0 32 0 1
-1
-end_operator
-begin_operator
-extinguish_big_fire firechief rural
-1
-18 0
-2
+0 18 0 1
 0 39 -1 0
-0 38 0 1
-1
+0 14 0 1
+3
 end_operator
 begin_operator
-extinguish_small_fire firechief byeng
-1
-31 0
-5
-0 34 -1 0
-0 32 0 1
-0 42 -1 0
-0 43 -1 1
+deploy_bulldozers_firechief_adminfire_lake 
+0
+2
+0 18 0 1
+0 14 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_adminfire_marketplace 
+0
+2
+0 18 0 1
+0 14 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_adminfire_mill 
+0
+2
+0 18 0 1
+0 14 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_adminfire_rural 
+0
+2
+0 18 0 1
+0 14 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_mesafire_byeng 
+0
+3
+0 37 0 1
+0 39 -1 0
 0 33 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_mesafire_lake 
+0
+2
+0 37 0 1
+0 33 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_mesafire_marketplace 
+0
+2
+0 37 0 1
+0 33 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_mesafire_mill 
+0
+2
+0 37 0 1
+0 33 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_mesafire_rural 
+0
+2
+0 37 0 1
+0 33 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_phxfire_byeng 
+0
+3
+0 32 0 1
+0 39 -1 0
+0 28 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_phxfire_lake 
+0
+2
+0 32 0 1
+0 28 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_phxfire_marketplace 
+0
+2
+0 32 0 1
+0 28 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_phxfire_mill 
+0
+2
+0 32 0 1
+0 28 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_phxfire_rural 
+0
+2
+0 32 0 1
+0 28 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_scottsfire_byeng 
+0
+3
+0 26 0 1
+0 39 -1 0
+0 22 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_scottsfire_lake 
+0
+2
+0 26 0 1
+0 22 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_scottsfire_marketplace 
+0
+2
+0 26 0 1
+0 22 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_scottsfire_mill 
+0
+2
+0 26 0 1
+0 22 0 1
+3
+end_operator
+begin_operator
+deploy_bulldozers_firechief_scottsfire_rural 
+0
+2
+0 26 0 1
+0 22 0 1
+3
+end_operator
+begin_operator
+deploy_helicopters_firechief_scottsfire_byeng 
+0
+3
+0 26 0 1
+0 27 -1 0
+0 21 1 2
+3
+end_operator
+begin_operator
+deploy_helicopters_firechief_scottsfire_lake 
+0
+2
+0 26 0 1
+0 21 1 2
+3
+end_operator
+begin_operator
+deploy_helicopters_firechief_scottsfire_marketplace 
+0
+2
+0 26 0 1
+0 21 1 2
+3
+end_operator
+begin_operator
+deploy_helicopters_firechief_scottsfire_mill 
+0
+2
+0 26 0 1
+0 21 1 2
+3
+end_operator
+begin_operator
+deploy_helicopters_firechief_scottsfire_rural 
+0
+2
+0 26 0 1
+0 21 1 0
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_adminfire_byeng 
+1
+9 0
+2
+0 18 0 1
+0 17 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_adminfire_lake 
+1
+10 0
+2
+0 18 0 1
+0 17 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_adminfire_marketplace 
+1
+11 0
+2
+0 18 0 1
+0 17 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_adminfire_mill 
+1
+12 0
+2
+0 18 0 1
+0 17 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_adminfire_rural 
+1
+13 0
+2
+0 18 0 1
+0 17 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_mesafire_byeng 
+1
+9 0
+2
+0 37 0 1
+0 34 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_mesafire_lake 
+1
+10 0
+2
+0 37 0 1
+0 34 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_mesafire_marketplace 
+1
+11 0
+2
+0 37 0 1
+0 34 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_mesafire_mill 
+1
+12 0
+2
+0 37 0 1
+0 34 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_mesafire_rural 
+1
+13 0
+2
+0 37 0 1
+0 34 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_phxfire_byeng 
+1
+9 0
+2
+0 32 0 1
+0 29 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_phxfire_lake 
+1
+10 0
+2
+0 32 0 1
+0 29 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_phxfire_marketplace 
+1
+11 0
+2
+0 32 0 1
+0 29 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_phxfire_mill 
+1
+12 0
+2
+0 32 0 1
+0 29 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_phxfire_rural 
+1
+13 0
+2
+0 32 0 1
+0 29 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_scottsfire_byeng 
+1
+9 0
+2
+0 26 0 1
+0 23 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_scottsfire_lake 
+1
+10 0
+2
+0 26 0 1
+0 23 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_scottsfire_marketplace 
+1
+11 0
+2
+0 26 0 1
+0 23 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_scottsfire_mill 
+1
+12 0
+2
+0 26 0 1
+0 23 0 1
+3
+end_operator
+begin_operator
+deploy_ladders_firechief_scottsfire_rural 
+1
+13 0
+2
+0 26 0 1
+0 23 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_adminfire_byeng 
+0
+3
+0 18 0 1
+0 38 -1 0
+0 15 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_adminfire_lake 
+0
+2
+0 18 0 1
+0 15 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_adminfire_marketplace 
+0
+2
+0 18 0 1
+0 15 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_adminfire_mill 
+0
+2
+0 18 0 1
+0 15 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_adminfire_rural 
+0
+2
+0 18 0 1
+0 15 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_mesafire_byeng 
+0
+3
+0 37 0 1
+0 38 -1 0
+0 35 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_mesafire_lake 
+0
+2
+0 37 0 1
+0 35 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_mesafire_marketplace 
+0
+2
+0 37 0 1
+0 35 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_mesafire_mill 
+0
+2
+0 37 0 1
+0 35 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_mesafire_rural 
+0
+2
+0 37 0 1
+0 35 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_phxfire_byeng 
+0
+3
+0 32 0 1
+0 38 -1 0
+0 30 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_phxfire_lake 
+0
+2
+0 32 0 1
+0 30 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_phxfire_marketplace 
+0
+2
+0 32 0 1
+0 30 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_phxfire_mill 
+0
+2
+0 32 0 1
+0 30 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_phxfire_rural 
+0
+2
+0 32 0 1
+0 30 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_scottsfire_byeng 
+0
+3
+0 26 0 1
+0 38 -1 0
+0 24 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_scottsfire_lake 
+0
+2
+0 26 0 1
+0 24 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_scottsfire_marketplace 
+0
+2
+0 26 0 1
+0 24 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_scottsfire_mill 
+0
+2
+0 26 0 1
+0 24 0 1
+3
+end_operator
+begin_operator
+deploy_rescuers_firechief_scottsfire_rural 
+0
+2
+0 26 0 1
+0 24 0 1
+3
+end_operator
+begin_operator
+deploy_small_engines_firechief_adminfire_byeng 
+0
+2
+0 18 0 1
+0 16 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_adminfire_lake 
+0
+2
+0 18 0 1
+0 16 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_adminfire_marketplace 
+0
+2
+0 18 0 1
+0 16 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_adminfire_mill 
+0
+2
+0 18 0 1
+0 16 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_adminfire_rural 
+0
+2
+0 18 0 1
+0 16 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_mesafire_byeng 
+0
+2
+0 37 0 1
+0 36 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_mesafire_lake 
+0
+2
+0 37 0 1
+0 36 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_mesafire_marketplace 
+0
+2
+0 37 0 1
+0 36 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_mesafire_mill 
+0
+2
+0 37 0 1
+0 36 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_mesafire_rural 
+0
+2
+0 37 0 1
+0 36 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_phxfire_byeng 
+0
+2
+0 32 0 1
+0 31 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_phxfire_lake 
+0
+2
+0 32 0 1
+0 31 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_phxfire_marketplace 
+0
+2
+0 32 0 1
+0 31 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_phxfire_mill 
+0
+2
+0 32 0 1
+0 31 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_phxfire_rural 
+0
+2
+0 32 0 1
+0 31 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_scottsfire_byeng 
+0
+2
+0 26 0 1
+0 25 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_scottsfire_lake 
+0
+2
+0 26 0 1
+0 25 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_scottsfire_marketplace 
+0
+2
+0 26 0 1
+0 25 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_scottsfire_mill 
+0
+2
+0 26 0 1
+0 25 0 1
+2
+end_operator
+begin_operator
+deploy_small_engines_firechief_scottsfire_rural 
+0
+2
+0 26 0 1
+0 25 0 1
+2
+end_operator
+begin_operator
+extinguish_big_fire_firechief_byeng 
+1
+9 0
+2
+0 20 -1 0
+0 19 0 1
 1
 end_operator
 begin_operator
-search_casualties firechief byeng
+search_casualties_firechief_byeng 
 4
-36 0
-30 0
-28 0
-34 0
-3
-0 42 -1 0
-0 37 -1 0
-0 43 -1 1
-3
-end_operator
-begin_operator
-search_casualties firechief rural
-4
-35 0
-29 0
-27 0
 39 0
-4
-0 42 -1 0
+27 0
+38 0
+20 0
+2
 0 41 -1 0
-0 43 -1 1
 0 40 -1 0
 3
 end_operator
 0
 begin_SG
-switch 44
-check 20
+switch 42
+check 28
 4
 5
 6
@@ -1037,75 +1507,99 @@ check 20
 17
 18
 19
+20
+21
 22
 23
 24
 25
-check 0
-check 0
-switch 26
-check 0
-switch 16
-check 0
-switch 25
-check 0
-check 1
-50
-check 0
-check 0
-check 0
-switch 17
-check 0
-switch 25
-check 0
-check 1
-51
-check 0
+26
+27
+29
+30
+31
+32
 check 0
 check 0
 switch 18
 check 0
-switch 25
+switch 9
+check 0
+switch 17
 check 0
 check 1
-52
+73
 check 0
 check 0
 check 0
-switch 15
+switch 10
 check 0
-check 3
-32
-33
-34
+switch 17
 check 0
-switch 19
+check 1
+74
 check 0
-check 3
-38
-39
-40
 check 0
-switch 20
 check 0
-check 3
+switch 11
+check 0
+switch 17
+check 0
+check 1
+75
+check 0
+check 0
+check 0
+switch 12
+check 0
+switch 17
+check 0
+check 1
+76
+check 0
+check 0
+check 0
+switch 13
+check 0
+switch 17
+check 0
+check 1
+77
+check 0
+check 0
+check 5
+43
 44
 45
 46
+47
 check 0
-switch 21
+switch 14
 check 0
-check 3
-56
-57
-58
+check 5
+48
+49
+50
+51
+52
 check 0
-switch 22
+switch 15
 check 0
-check 3
-62
-63
-64
+check 5
+93
+94
+95
+96
+97
+check 0
+switch 16
+check 0
+check 5
+113
+114
+115
+116
+117
 check 0
 check 0
 check 0
@@ -1113,10 +1607,12 @@ switch 6
 check 0
 switch 7
 check 0
-check 3
-26
-27
-28
+check 5
+33
+34
+35
+36
+37
 check 0
 check 0
 check 0
@@ -1124,157 +1620,286 @@ switch 4
 check 0
 switch 5
 check 0
-check 3
-29
-30
-31
+check 5
+38
+39
+40
+41
+42
 check 0
 check 0
 check 0
-switch 23
+switch 37
 check 0
-switch 16
+switch 9
 check 0
-switch 24
-check 0
-check 1
-53
-check 0
-check 0
-check 0
-switch 17
-check 0
-switch 24
+switch 34
 check 0
 check 1
-54
-check 0
-check 0
-check 0
-switch 18
-check 0
-switch 24
-check 0
-check 1
-55
+78
 check 0
 check 0
 check 0
 switch 10
 check 0
-check 3
-35
-36
-37
+switch 34
+check 0
+check 1
+79
+check 0
+check 0
 check 0
 switch 11
 check 0
-check 3
-41
-42
-43
+switch 34
+check 0
+check 1
+80
+check 0
+check 0
 check 0
 switch 12
 check 0
-check 3
-47
-48
-49
+switch 34
+check 0
+check 1
+81
+check 0
+check 0
 check 0
 switch 13
 check 0
-check 3
+switch 34
+check 0
+check 1
+82
+check 0
+check 0
+check 0
+check 0
+switch 33
+check 0
+check 5
+53
+54
+55
+56
+57
+check 0
+switch 35
+check 0
+check 5
+98
+99
+100
+101
+102
+check 0
+switch 36
+check 0
+check 5
+118
+119
+120
+121
+122
+check 0
+check 0
+check 0
+switch 32
+check 0
+switch 9
+check 0
+switch 29
+check 0
+check 1
+83
+check 0
+check 0
+check 0
+switch 10
+check 0
+switch 29
+check 0
+check 1
+84
+check 0
+check 0
+check 0
+switch 11
+check 0
+switch 29
+check 0
+check 1
+85
+check 0
+check 0
+check 0
+switch 12
+check 0
+switch 29
+check 0
+check 1
+86
+check 0
+check 0
+check 0
+switch 13
+check 0
+switch 29
+check 0
+check 1
+87
+check 0
+check 0
+check 0
+check 0
+switch 28
+check 0
+check 5
+58
 59
 60
 61
+62
 check 0
-switch 14
+switch 30
 check 0
-check 3
+check 5
+103
+104
+105
+106
+107
+check 0
+switch 31
+check 0
+check 5
+123
+124
+125
+126
+127
+check 0
+check 0
+check 0
+switch 26
+check 0
+switch 9
+check 0
+switch 23
+check 0
+check 1
+88
+check 0
+check 0
+check 0
+switch 10
+check 0
+switch 23
+check 0
+check 1
+89
+check 0
+check 0
+check 0
+switch 11
+check 0
+switch 23
+check 0
+check 1
+90
+check 0
+check 0
+check 0
+switch 12
+check 0
+switch 23
+check 0
+check 1
+91
+check 0
+check 0
+check 0
+switch 13
+check 0
+switch 23
+check 0
+check 1
+92
+check 0
+check 0
+check 0
+check 0
+switch 21
+check 0
+check 0
+check 5
+68
+69
+70
+71
+72
+check 0
+switch 22
+check 0
+check 5
+63
+64
 65
 66
 67
 check 0
+switch 24
 check 0
+check 5
+108
+109
+110
+111
+112
 check 0
-switch 9
+switch 25
 check 0
-switch 37
-check 0
-check 1
-20
+check 5
+128
+129
+130
+131
+132
 check 0
 check 0
 check 0
 switch 8
 check 0
-switch 41
+switch 40
 check 0
 check 1
-21
+28
 check 0
 check 0
 check 0
-switch 16
+switch 9
 check 0
-switch 32
-check 0
-check 1
-68
-check 0
-check 0
-check 0
-switch 18
-check 0
-switch 38
+switch 19
 check 0
 check 1
-69
+133
 check 0
 check 0
-check 0
-switch 36
-check 0
-switch 30
-check 0
-switch 28
-check 0
-switch 34
-check 0
-check 1
-71
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 35
-check 0
-switch 29
-check 0
-switch 27
 check 0
 switch 39
 check 0
-check 1
-72
+switch 27
 check 0
+switch 38
 check 0
-check 0
-check 0
-check 0
-check 0
-check 0
-switch 31
-check 0
-switch 32
-check 0
-switch 33
+switch 20
 check 0
 check 1
-70
+134
+check 0
+check 0
 check 0
 check 0
 check 0
@@ -1282,7 +1907,7 @@ check 0
 check 0
 switch 3
 check 0
-switch 42
+switch 41
 check 0
 check 1
 0
@@ -1291,7 +1916,7 @@ check 0
 check 0
 switch 2
 check 0
-switch 42
+switch 41
 check 0
 check 1
 1
@@ -1300,7 +1925,7 @@ check 0
 check 0
 switch 1
 check 0
-switch 42
+switch 41
 check 0
 check 1
 2
@@ -1309,7 +1934,7 @@ check 0
 check 0
 switch 0
 check 0
-switch 42
+switch 41
 check 0
 check 1
 3
@@ -1322,34 +1947,34 @@ begin_DTG
 0
 1
 0
-25
+32
 0
 end_DTG
 begin_DTG
 0
 1
 0
-24
+31
 0
 end_DTG
 begin_DTG
 0
 1
 0
-23
+30
 0
 end_DTG
 begin_DTG
 0
 1
 0
-22
-0
-end_DTG
-begin_DTG
-1
-1
 29
+0
+end_DTG
+begin_DTG
+1
+1
+38
 1
 5 0
 1
@@ -1360,7 +1985,7 @@ end_DTG
 begin_DTG
 1
 1
-29
+38
 1
 4 0
 0
@@ -1368,7 +1993,7 @@ end_DTG
 begin_DTG
 1
 1
-26
+33
 1
 7 0
 1
@@ -1379,100 +2004,10 @@ end_DTG
 begin_DTG
 1
 1
-26
+33
 1
 6 0
 0
-end_DTG
-begin_DTG
-0
-2
-0
-28
-2
-6 0
-7 0
-0
-31
-2
-4 0
-5 0
-end_DTG
-begin_DTG
-0
-2
-0
-26
-2
-6 0
-7 0
-0
-29
-2
-4 0
-5 0
-end_DTG
-begin_DTG
-1
-1
-35
-1
-23 0
-0
-end_DTG
-begin_DTG
-1
-1
-41
-1
-23 0
-0
-end_DTG
-begin_DTG
-1
-1
-47
-1
-23 0
-0
-end_DTG
-begin_DTG
-1
-1
-59
-1
-23 0
-0
-end_DTG
-begin_DTG
-1
-1
-65
-1
-23 0
-0
-end_DTG
-begin_DTG
-1
-1
-32
-1
-26 0
-0
-end_DTG
-begin_DTG
-0
-2
-0
-32
-2
-26 0
-15 0
-0
-35
-2
-23 0
-10 0
 end_DTG
 begin_DTG
 0
@@ -1480,48 +2015,235 @@ begin_DTG
 0
 33
 2
-26 0
-15 0
+6 0
+7 0
 0
-36
-2
-23 0
-10 0
-end_DTG
-begin_DTG
-0
-2
-0
-34
-2
-26 0
-15 0
-0
-37
-2
-23 0
-10 0
-end_DTG
-begin_DTG
-1
-1
 38
+2
+4 0
+5 0
+end_DTG
+begin_DTG
+0
 1
-26 0
+0
+43
+2
+18 0
+13 1
+end_DTG
+begin_DTG
+0
+1
+0
+44
+2
+18 0
+13 1
+end_DTG
+begin_DTG
+0
+1
+0
+45
+2
+18 0
+13 1
+end_DTG
+begin_DTG
+0
+1
+0
+46
+2
+18 0
+13 1
+end_DTG
+begin_DTG
+0
+2
+0
+47
+1
+18 0
+2
+43
+1
+18 0
 0
 end_DTG
 begin_DTG
 1
+1
+48
+1
+18 0
+0
+end_DTG
+begin_DTG
+1
+1
+93
+1
+18 0
+0
+end_DTG
+begin_DTG
+1
+1
+113
+1
+18 0
+0
+end_DTG
+begin_DTG
+5
+1
+73
+2
+18 0
+9 0
+1
+74
+2
+18 0
+10 0
+1
+75
+2
+18 0
+11 0
+1
+76
+2
+18 0
+12 0
+1
+77
+2
+18 0
+13 0
+0
+end_DTG
+begin_DTG
+9
+1
+117
+1
+16 0
+1
+48
+1
+14 0
+1
+97
+1
+15 0
 1
 44
 1
+13 1
+1
+77
+2
+13 0
+17 0
+1
+76
+2
+12 0
+17 0
+1
+75
+2
+11 0
+17 0
+1
+74
+2
+10 0
+17 0
+1
+73
+2
+9 0
+17 0
+1
+0
+4
+0
+end_DTG
+begin_DTG
+1
+1
+133
+1
+9 0
+0
+end_DTG
+begin_DTG
+0
+1
+0
+133
+2
+9 0
+19 0
+end_DTG
+begin_DTG
+0
+2
+0
+72
+1
+26 0
+2
+68
+1
 26 0
 0
 end_DTG
 begin_DTG
 1
 1
-56
+63
+1
+26 0
+0
+end_DTG
+begin_DTG
+5
+1
+88
+2
+26 0
+9 0
+1
+89
+2
+26 0
+10 0
+1
+90
+2
+26 0
+11 0
+1
+91
+2
+26 0
+12 0
+1
+92
+2
+26 0
+13 0
+0
+end_DTG
+begin_DTG
+1
+1
+108
 1
 26 0
 0
@@ -1529,335 +2251,324 @@ end_DTG
 begin_DTG
 1
 1
-62
+128
 1
 26 0
+0
+end_DTG
+begin_DTG
+9
+1
+132
+1
+25 0
+1
+64
+1
+22 0
+1
+112
+1
+24 0
+1
+72
+1
+21 1
+1
+89
+2
+10 0
+23 0
+1
+90
+2
+11 0
+23 0
+1
+91
+2
+12 0
+23 0
+1
+92
+2
+13 0
+23 0
+1
+88
+2
+9 0
+23 0
+1
+0
+9
+0
+end_DTG
+begin_DTG
+0
+1
+0
+68
+2
+26 0
+21 1
+end_DTG
+begin_DTG
+1
+1
+58
+1
+32 0
+0
+end_DTG
+begin_DTG
+5
+1
+83
+2
+32 0
+9 0
+1
+84
+2
+32 0
+10 0
+1
+85
+2
+32 0
+11 0
+1
+86
+2
+32 0
+12 0
+1
+87
+2
+32 0
+13 0
+0
+end_DTG
+begin_DTG
+1
+1
+103
+1
+32 0
+0
+end_DTG
+begin_DTG
+1
+1
+123
+1
+32 0
 0
 end_DTG
 begin_DTG
 8
 1
-67
+127
 1
-14 0
+31 0
 1
-41
+103
 1
-11 0
+30 0
 1
-47
+58
 1
-12 0
+28 0
 1
-61
-1
+87
+2
 13 0
+29 0
 1
-36
+86
+2
+12 0
+29 0
 1
+85
+2
+11 0
+29 0
+1
+84
+2
 10 0
+29 0
 1
-55
+83
 2
-18 0
-24 0
+9 0
+29 0
 1
-54
-2
-17 0
-24 0
+0
+8
+0
+end_DTG
+begin_DTG
+1
 1
 53
+1
+37 0
+0
+end_DTG
+begin_DTG
+5
+1
+78
 2
-16 0
-24 0
+37 0
+9 0
+1
+79
+2
+37 0
+10 0
+1
+80
+2
+37 0
+11 0
+1
+81
+2
+37 0
+12 0
+1
+82
+2
+37 0
+13 0
+0
+end_DTG
+begin_DTG
+1
+1
+98
+1
+37 0
+0
+end_DTG
+begin_DTG
+1
+1
+118
+1
+37 0
+0
+end_DTG
+begin_DTG
+8
+1
+122
+1
+36 0
+1
+98
+1
+35 0
+1
+53
+1
+33 0
+1
+82
+2
+13 0
+34 0
+1
+81
+2
+12 0
+34 0
+1
+80
+2
+11 0
+34 0
+1
+79
+2
+10 0
+34 0
+1
+78
+2
+9 0
+34 0
 1
 0
 7
 0
 end_DTG
 begin_DTG
-3
-1
-53
-2
-23 0
-16 0
-1
-54
-2
-23 0
-17 0
-1
-55
-2
-23 0
-18 0
 0
-end_DTG
-begin_DTG
-3
-1
-50
-2
-26 0
-16 0
-1
-51
-2
-26 0
-17 0
-1
-52
-2
-26 0
-18 0
+4
 0
-end_DTG
-begin_DTG
-8
-1
-64
-1
-22 0
-1
-38
-1
-19 0
-1
-44
-1
-20 0
-1
-58
-1
-21 0
-1
-33
-1
+93
+2
+18 0
 15 0
-1
-52
+0
+98
+2
+37 0
+35 0
+0
+103
+2
+32 0
+30 0
+0
+108
+2
+26 0
+24 0
+end_DTG
+begin_DTG
+0
+4
+0
+48
 2
 18 0
-25 0
-1
-51
-2
-17 0
-25 0
-1
-50
-2
-16 0
-25 0
-1
-0
-4
-0
-end_DTG
-begin_DTG
-0
-2
-0
-58
-2
-26 0
-21 0
-0
-61
-2
-23 0
-13 0
-end_DTG
-begin_DTG
-0
-2
-0
-56
-2
-26 0
-21 0
-0
-59
-2
-23 0
-13 0
-end_DTG
-begin_DTG
-0
-2
-0
-46
-2
-26 0
-20 0
-0
-49
-2
-23 0
-12 0
-end_DTG
-begin_DTG
-0
-2
-0
-44
-2
-26 0
-20 0
-0
-47
-2
-23 0
-12 0
-end_DTG
-begin_DTG
-0
-4
-0
-62
-2
-26 0
-22 0
-0
-65
-2
-23 0
 14 0
 0
-32
+53
 2
-26 0
-15 0
-0
-35
-2
-23 0
-10 0
-end_DTG
-begin_DTG
-2
-1
-68
-1
-16 0
-1
-70
-2
-31 0
+37 0
 33 0
 0
-end_DTG
-begin_DTG
-1
-1
-70
+58
 2
-31 0
 32 0
-0
-end_DTG
-begin_DTG
-0
-2
-0
-68
-2
-16 0
-32 0
-0
-70
-3
-31 0
-32 0
-33 0
-end_DTG
-begin_DTG
-0
-2
-0
-40
-2
-26 0
-19 0
-0
-43
-2
-23 0
-11 0
-end_DTG
-begin_DTG
-0
-2
-0
-38
-2
-26 0
-19 0
-0
-41
-2
-23 0
-11 0
-end_DTG
-begin_DTG
-1
-1
-20
-1
-9 0
-1
-0
-71
-4
-36 0
-30 0
 28 0
-34 0
-end_DTG
-begin_DTG
-1
-1
-69
-1
-18 0
 0
-end_DTG
-begin_DTG
-0
-1
-0
-69
+63
 2
-18 0
+26 0
+22 0
+end_DTG
+begin_DTG
+1
+1
+28
+1
+8 0
+1
+0
+134
+4
+39 0
+27 0
 38 0
-end_DTG
-begin_DTG
-0
-1
-0
-72
-4
-35 0
-29 0
-27 0
-39 0
-end_DTG
-begin_DTG
-1
-1
-21
-1
-8 0
-1
-0
-72
-4
-35 0
-29 0
-27 0
-39 0
+20 0
 end_DTG
 begin_DTG
 4
@@ -1877,320 +2588,218 @@ begin_DTG
 3
 1
 0 0
-5
-0
-20
 2
-9 0
-37 0
 0
-21
+28
 2
 8 0
+40 0
+0
+134
+4
+39 0
+27 0
+38 0
+20 0
+end_DTG
+begin_DTG
+0
+4
+0
+0
+2
+3 0
 41 0
 0
-70
-3
-31 0
-32 0
-33 0
-0
-71
-4
-36 0
-30 0
-28 0
-34 0
-0
-72
-4
-35 0
-29 0
-27 0
-39 0
-end_DTG
-begin_DTG
-5
 1
-20
 2
-9 0
-37 0
-1
-21
-2
-8 0
+2 0
 41 0
-1
-70
-3
-31 0
-32 0
-33 0
-1
-71
-4
-36 0
-30 0
-28 0
-34 0
-1
-72
-4
-35 0
-29 0
-27 0
-39 0
-4
-0
-0
-2
-3 0
-42 0
-0
-1
-2
-2 0
-42 0
 0
 2
 2
 1 0
-42 0
+41 0
 0
 3
 2
 0 0
-42 0
-end_DTG
-begin_DTG
-0
-4
-0
-0
-2
-3 0
-42 0
-0
-1
-2
-2 0
-42 0
-0
-2
-2
-1 0
-42 0
-0
-3
-2
-0 0
-42 0
+41 0
 end_DTG
 begin_CG
-3
-44 1
-42 1
-43 1
-3
-44 1
-42 1
-43 1
-3
-44 1
-42 1
-43 1
-3
-44 1
-42 1
-43 1
-3
-9 1
-8 1
-5 3
-3
-4 3
-9 1
-8 1
-3
-9 1
-8 1
-7 3
-3
-6 3
-9 1
-8 1
-3
+2
 42 1
 41 1
-43 1
-3
-42 1
-37 1
-43 1
-5
-23 3
-16 1
-17 1
-18 1
-31 1
-3
-23 3
-36 1
-35 1
-3
-23 3
-30 1
-29 1
-3
-23 3
-28 1
-27 1
 2
-23 3
-31 1
-5
-26 3
-16 1
-17 1
+42 1
+41 1
+2
+42 1
+41 1
+2
+42 1
+41 1
+2
+8 1
+5 5
+2
+4 5
+8 1
+2
+8 1
+7 5
+2
+6 5
+8 1
+2
+41 1
+40 1
+10
 18 1
-31 1
-6
-26 1
-23 1
-34 1
+37 1
 32 1
-25 1
-24 1
-4
 26 1
+20 1
+19 1
+17 1
+34 1
+29 1
 23 1
-25 1
-24 1
-6
+8
+18 1
+37 1
+32 1
 26 1
+17 1
+34 1
+29 1
 23 1
+8
+18 1
+37 1
+32 1
+26 1
+17 1
+34 1
+29 1
+23 1
+8
+18 1
+37 1
+32 1
+26 1
+17 1
+34 1
+29 1
+23 1
+12
+18 6
+37 1
+32 1
+26 1
+9 1
+10 1
+11 1
+12 1
+17 1
+34 1
+29 1
+23 1
+2
+18 5
+39 1
+2
+18 5
+38 1
+1
+18 5
+1
+18 5
+11
+9 1
+10 1
+11 1
+12 1
+13 5
 39 1
 38 1
-25 1
-24 1
-3
-26 3
-36 1
-35 1
-3
-26 3
-30 1
-29 1
-3
-26 3
-28 1
+14 5
+17 5
+15 5
+16 5
+1
+20 1
+2
+41 1
+40 1
+2
+26 5
 27 1
 2
-26 3
-31 1
-16
-16 1
-17 1
-18 1
-36 1
-35 1
-31 2
-30 1
-29 1
-28 1
-27 1
-10 3
-11 3
-12 3
-24 3
-13 3
-14 3
-1
-23 3
-1
-26 3
-16
-16 1
-17 1
-18 1
-36 1
-35 1
-31 2
-30 1
-29 1
-28 1
-27 1
-15 3
-19 3
-20 3
-25 3
-21 3
-22 3
-4
-42 1
-41 1
-43 1
-40 1
-3
-42 1
-37 1
-43 1
-4
-42 1
-41 1
-43 1
-40 1
-3
-42 1
-37 1
-43 1
-5
-34 1
-32 1
-42 1
-43 1
-33 1
-4
-34 2
-42 1
-43 1
-33 1
-4
-34 1
-32 1
-42 1
-43 1
-3
-42 1
-37 1
-43 1
-4
-42 1
-41 1
-43 1
-40 1
-3
-42 1
-37 1
-43 1
-2
-42 1
-43 1
-1
+26 5
 39 1
-4
-42 1
+1
+26 5
+2
+26 5
+38 1
+1
+26 5
+8
+39 1
+27 1
+21 5
+38 1
+22 5
+23 5
+24 5
+25 5
+2
 41 1
-43 1
 40 1
-0
 2
-42 1
-43 1
+32 5
+39 1
+1
+32 5
 2
-44 4
-43 4
-0
+32 5
+38 1
+1
+32 5
+6
+39 1
+38 1
+28 5
+29 5
+30 5
+31 5
+2
+37 5
+39 1
+1
+37 5
+2
+37 5
+38 1
+1
+37 5
+6
+39 1
+38 1
+33 5
+34 5
+35 5
+36 5
+2
+41 1
+40 1
+2
+41 1
+40 1
+1
+41 1
+1
+42 4
 0
 end_CG
