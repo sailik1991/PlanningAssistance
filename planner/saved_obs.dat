@@ -1,3 +1,2 @@
-(ALERT_FIRECHIEF_ADMINFIRE );--
 (CONTACT_MEDIA_FIRECHIEF )
-(DEPLOY_BIG_ENGINES_FIRECHIEF_ADMINFIRE_BYENG )
+(DEPLOY_BIG_ENGINES_FIRECHIEF_ADMINFIRE_BYENG );(deploy_big_engines_firechief_adminfire_byeng) has an unsatisfied precondition at time 2 : (Set (alerted_adminfire) to true)

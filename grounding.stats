@@ -1,5 +1,5 @@
 Parsing=<1 msec
-Instantiation=0.008
+Instantiation=0.004
 Fluent_Copying=<1 msec
 Init_And_Goal_Copying=<1 msec
-Operators_Copying=0.004
+Operators_Copying=<1 msec

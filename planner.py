@@ -6,37 +6,37 @@ from copy import deepcopy
 from problemFileMaker import problemFileMaker
 
 class Planner():
-    CALL_FAST_DOWNWARD = './planner/FAST-DOWNWARD/fast-downward.py '
-    CALL_VAL = './planner/VAL/validate -v '
-    CALL_PR2 = './planner/PR2/pr2plan '
+    CALL_FAST_DOWNWARD = '/var/www/radar/planner/FAST-DOWNWARD/fast-downward.py '
+    CALL_VAL = '/var/www/radar/planner/VAL/validate -v '
+    CALL_PR2 = '/var/www/radar/planner/PR2/pr2plan '
 
-    def __init__(self, domain='./planner/domain.pddl', problem='./planner/mock_problem.pddl', obs='./planner/obs.dat'):
+    def __init__(self, domain='/var/www/radar/planner/domain.pddl', problem='/var/www/radar/planner/mock_problem.pddl', obs='/var/www/radar/planner/obs.dat'):
         
         # Domain and problem files
         self.domain = domain
-        self.human_domain = './planner/domain_human.pddl'
+        self.human_domain = '/var/www/radar/planner/domain_human.pddl'
         self.problem = problem
 
         # Grounded pr-domain and pr-problem files
-        self.pr_domain = './pr-domain.pddl'
-        self.pr_problem = './pr-problem.pddl'
-        self.val_pr_domain = './planner/pr-domain.pddl'
-        self.val_pr_problem = './planner/pr-problem.pddl'
+        self.pr_domain = '/var/www/radar/pr-domain.pddl'
+        self.pr_problem = '/var/www/radar/pr-problem.pddl'
+        self.val_pr_domain = '/var/www/radar/planner/pr-domain.pddl'
+        self.val_pr_problem = '/var/www/radar/planner/pr-problem.pddl'
 
         # Plan output
-        self.sas_plan = './sas_plan'
+        self.sas_plan = '/var/www/radar/sas_plan'
 
         # Observation files
         self.obs = obs
-        self.saveduiPlan = './planner/saved_obs.dat'
+        self.saveduiPlan = '/var/www/radar/planner/saved_obs.dat'
 
         # Explanation files
-        self.exc_file = './planner/mmp/src/exp.dat'
-        self.exp_file = './planner/mmp_explanations/src/exp.dat'
+        self.exc_file = '/var/www/radar/planner/mmp/src/exp.dat'
+        self.exp_file = '/var/www/radar/planner/mmp_explanations/src/exp.dat'
         
         # Generating Landmarks
-        self.landmark_code = '../RADAR/FD/src/fast-downward.py'
-        self.output = './output'
+        self.landmark_code = '/var/www/radar/planner/FD/src/fast-downward.py'
+        self.output = '/var/www/radar/output'
         
         self.resource_list = ['adminfire', 'mesafire', 'phxfire', 'scottsfire', 
                     'joseph', 'lukes', 'apachestation', 'courtstation', 'substation']
@@ -212,7 +212,7 @@ class Planner():
 
     def getExplanations(self):
         
-        cmd = "cd ./planner/mmp_explanations/src && ./Problem.py -m ../../../{0} -n ../../../{1} -d ../domain/radar_domain_template.pddl -f ../../mock_problem.pddl".format(self.domain, self.human_domain)
+        cmd = "cd /var/www/radar/planner/mmp_explanations/src && ./Problem.py -m ../../../{0} -n ../../../{1} -d ../domain/radar_domain_template.pddl -f ../../mock_problem.pddl".format(self.domain, self.human_domain)
         try:
             os.system(cmd)
         except:
@@ -235,7 +235,7 @@ class Planner():
         return reason
 
     def getExcuses(self):
-        cmd = "cd ./planner/mmp/src && ./Problem.py -m ../domain/radar_domain.pddl -n ../domain/radar_domain.pddl -d ../domain/radar_domain_template.pddl -q ../domain/complete_initial_state_problem_template.pddl -f ../domain/complete_initial_state_problem.pddl -t ../../mock_problem.pddl"
+        cmd = "cd /var/www/radar/planner/mmp/src && ./Problem.py -m ../domain/radar_domain.pddl -n ../domain/radar_domain.pddl -d ../domain/radar_domain_template.pddl -q ../domain/complete_initial_state_problem_template.pddl -f ../domain/complete_initial_state_problem.pddl -t ../../mock_problem.pddl"
         try:
             os.system(cmd)
         except:
@@ -262,7 +262,7 @@ class Planner():
     def getActionNames(self):
         self.deletePrFiles()
         try:
-            cmd = self.CALL_PR2 + ' -d ' + self.domain + ' -i ' + self.problem +' -o ' + './planner/blank_obs.dat'
+            cmd = self.CALL_PR2 + ' -d ' + self.domain + ' -i ' + self.problem +' -o ' + '/var/www/radar/planner/blank_obs.dat'
             os.system(cmd)
         except:
             raise Exception('[ERROR] Call to PR2 failed!')
@@ -272,15 +272,15 @@ class Planner():
             return []
          
         try:
-            cmd = 'cat pr-problem.pddl | grep -v "EXPLAIN" > pr-problem.pddl.tmp && mv pr-problem.pddl.tmp pr-problem.pddl'
+            cmd = 'cat {0} | grep -v "EXPLAIN" > pr-problem.pddl.tmp && mv pr-problem.pddl.tmp {0}'.format(self.pr_problem)
             os.system(cmd)
-            cmd = 'cat pr-domain.pddl | grep -v "EXPLAIN" > pr-domain.pddl.tmp && mv pr-domain.pddl.tmp pr-domain.pddl'
+            cmd = 'cat {0} | grep -v "EXPLAIN" > pr-domain.pddl.tmp && mv pr-domain.pddl.tmp {0}'.format(self.pr_domain)
             os.system(cmd)
         except:
             raise Exception('[ERROR] Removing "EXPLAIN" from pr-domain and pr-problem files.')
  
         actionNames = []
-        f = open('./pr-domain.pddl')
+        f = open(self.pr_domain)
         for l in f:
             if '(:action ' in l:
                 actionNames.append('(' + l.split('(:action ')[1].strip() +')')
@@ -343,5 +343,5 @@ class Planner():
         tempProblem += ')\n)\n'
         tempProblem += '\n(:metric minimize (total-cost))\n\n)\n'
 
-        f = file('./planner/mock_problem.pddl','w')
+        f = file(self.problem, 'w')
         f.write(tempProblem)

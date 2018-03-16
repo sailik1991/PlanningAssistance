@@ -252,6 +252,7 @@
 		( NOT_NEEDED_DIVERTED_TRAFFIC_LAKE_MILL )
 		( NOT_NEEDED_DIVERTED_TRAFFIC_LAKE_LAKE )
 		( HAS_AMBULANCES_NUMBER_JOSEPH )
+		( HAS_AMBULANCES_NUMBER_LUKES )
 		( HAS_RESCUERS_NUMBER_PHXFIRE )
 		( HAS_RESCUERS_NUMBER_SCOTTSFIRE )
 		( HAS_RESCUERS_NUMBER_MESAFIRE )
@@ -270,6 +271,7 @@
 		( HAS_SMALL_ENGINES_NUMBER_ADMINFIRE )
 		( HAS_POLICE_CAR_NUMBER_SUBSTATION )
 		( HAS_POLICE_CAR_NUMBER_COURTSTATION )
+		( HAS_POLICE_CAR_NUMBER_APACHESTATION )
 	) 
 	(:functions (total-cost))
 	(:action ADDRESS_MEDIA_TRANSPORTCHIEF
@@ -2016,71 +2018,6 @@
 			( MEDIA_CONTACTED_POLICECHIEF )
 		)
 	)
-	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_BYENG
-		:parameters ()
-		:precondition
-		(and
-			( ALERTED_APACHESTATION )
-		)
-		:effect
-		(and
-			(increase (total-cost) 1)
-			( POSITIONED_POLICEMEN_BYENG )
-			(not ( ALERTED_APACHESTATION ))
-		)
-	)
-	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_RURAL
-		:parameters ()
-		:precondition
-		(and
-			( ALERTED_APACHESTATION )
-		)
-		:effect
-		(and
-			(increase (total-cost) 1)
-			( POSITIONED_POLICEMEN_RURAL )
-			(not ( ALERTED_APACHESTATION ))
-		)
-	)
-	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_MARKETPLACE
-		:parameters ()
-		:precondition
-		(and
-			( ALERTED_APACHESTATION )
-		)
-		:effect
-		(and
-			(increase (total-cost) 1)
-			( POSITIONED_POLICEMEN_MARKETPLACE )
-			(not ( ALERTED_APACHESTATION ))
-		)
-	)
-	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_MILL
-		:parameters ()
-		:precondition
-		(and
-			( ALERTED_APACHESTATION )
-		)
-		:effect
-		(and
-			(increase (total-cost) 1)
-			( POSITIONED_POLICEMEN_MILL )
-			(not ( ALERTED_APACHESTATION ))
-		)
-	)
-	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_LAKE
-		:parameters ()
-		:precondition
-		(and
-			( ALERTED_APACHESTATION )
-		)
-		:effect
-		(and
-			(increase (total-cost) 1)
-			( POSITIONED_POLICEMEN_LAKE )
-			(not ( ALERTED_APACHESTATION ))
-		)
-	)
 	(:action POSITION_POLICEMEN_POLICECHIEF_SUBSTATION_BYENG
 		:parameters ()
 		:precondition
@@ -2144,6 +2081,136 @@
 			(increase (total-cost) 1)
 			( POSITIONED_POLICEMEN_LAKE )
 			(not ( ALERTED_SUBSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_BYENG )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_RURAL )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_MILL
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_MILL )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_COURTSTATION_LAKE
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_COURTSTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_LAKE )
+			(not ( ALERTED_COURTSTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_BYENG )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_RURAL )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_MARKETPLACE )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_MILL
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_MILL )
+			(not ( ALERTED_APACHESTATION ))
+		)
+	)
+	(:action POSITION_POLICEMEN_POLICECHIEF_APACHESTATION_LAKE
+		:parameters ()
+		:precondition
+		(and
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( POSITIONED_POLICEMEN_LAKE )
+			(not ( ALERTED_APACHESTATION ))
 		)
 	)
 	(:action DEPLOY_AMBULANCES_POLICECHIEF_JOSEPH_BYENG
@@ -2219,6 +2286,81 @@
 			( DEPLOYED_AMBULANCES_LAKE )
 			(not ( ALERTED_JOSEPH ))
 			(not ( HAS_AMBULANCES_NUMBER_JOSEPH ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_BYENG )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_RURAL )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_MARKETPLACE )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_MILL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_MILL )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
+		)
+	)
+	(:action DEPLOY_AMBULANCES_POLICECHIEF_LUKES_LAKE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_AMBULANCES_NUMBER_LUKES )
+			( ALERTED_LUKES )
+		)
+		:effect
+		(and
+			(increase (total-cost) 2)
+			( DEPLOYED_AMBULANCES_LAKE )
+			(not ( ALERTED_LUKES ))
+			(not ( HAS_AMBULANCES_NUMBER_LUKES ))
 		)
 	)
 	(:action DEPLOY_RESCUERS_FIRECHIEF_PHXFIRE_BYENG
@@ -3634,6 +3776,81 @@
 			( DEPLOYED_POLICE_CARS_LAKE )
 			(not ( ALERTED_COURTSTATION ))
 			(not ( HAS_POLICE_CAR_NUMBER_COURTSTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_BYENG
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_BYENG )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_RURAL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_RURAL )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_MARKETPLACE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_MARKETPLACE )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_MILL
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_MILL )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
+		)
+	)
+	(:action DEPLOY_POLICE_CARS_POLICECHIEF_APACHESTATION_LAKE
+		:parameters ()
+		:precondition
+		(and
+			( HAS_POLICE_CAR_NUMBER_APACHESTATION )
+			( ALERTED_APACHESTATION )
+		)
+		:effect
+		(and
+			(increase (total-cost) 1)
+			( DEPLOYED_POLICE_CARS_LAKE )
+			(not ( ALERTED_APACHESTATION ))
+			(not ( HAS_POLICE_CAR_NUMBER_APACHESTATION ))
 		)
 	)
 	(:action UPDATE_TRANSPORTCHIEF

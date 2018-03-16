@@ -5,14 +5,14 @@ from flask import jsonify
 class dbHandler:
 
     def __init__(self):
-        self.db = MySQLdb.connect( 'localhost','root','root','radar' )
+        self.db = MySQLdb.connect( 'localhost','root','yochan','radar' )
         self.db.autocommit(True)
         self.cursor = self.db.cursor()
         self.tableKeys = {'fire_stations_actual': 'fire_station', 'hospitals': 'hospital', 'police_stations': 'police_station'}
     
     def initializeDatabase(self):
         try:
-            cmd = 'mysql -u root -p radar < radar.sql'
+            cmd = 'mysql -u root -pyochan radar < radar.sql'
             os.system(cmd)
         except:
             print "[ERROR] Initializing RADAR Database"

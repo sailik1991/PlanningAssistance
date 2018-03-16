@@ -37,7 +37,8 @@ def main():
             elif component == "search":
                 exitcode = run_components.run_search(args)
             elif component == "validate":
-                run_components.run_validate(args)
+                print('Skipping the validation step!')
+		#run_components.run_validate(args)
             else:
                 assert False
         except subprocess.CalledProcessError as err:
