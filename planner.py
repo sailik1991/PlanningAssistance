@@ -212,7 +212,7 @@ class Planner():
 
     def getExplanations(self):
         
-        cmd = "cd /var/www/radar/planner/mmp_explanations/src && ./Problem.py -m ../../../{0} -n ../../../{1} -d ../domain/radar_domain_template.pddl -f ../../mock_problem.pddl".format(self.domain, self.human_domain)
+        cmd = "cd /var/www/radar/planner/mmp_explanations/src && ./Problem.py -m {0} -n {1} -d ../domain/radar_domain_template.pddl -f ../../mock_problem.pddl".format(self.domain, self.human_domain)
         try:
             os.system(cmd)
         except:
