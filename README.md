@@ -12,7 +12,7 @@ RADAR is a Web User Interface designed to provide proactive decision support to 
 }
 ```
 
-Note that we have performed user studies showcasing the effectiveness of such systems. The paper on it, pulished in the conference on Naturalistic Decision Making, 2019 can be found at [here](https://yochan-lab.github.io/papers/files/papers/iPass.pdf).
+Note that we have performed user studies showcasing the effectiveness of such systems. The paper on it, pulished in the conference on Naturalistic Decision Making, 2019 can be found [here](https://yochan-lab.github.io/papers/files/papers/iPass.pdf).
 
 ![RADAR home page](http://www.public.asu.edu/~ssengu15/images/radar.png)
 
